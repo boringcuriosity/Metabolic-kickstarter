@@ -112,8 +112,6 @@ export function Day1({ onResourceClick, onProductClick }: Day1Props) {
         </div>
       </div>
 
-      {/* Recommended Product */}
-      <RecommendedProduct onClick={onProductClick} />
 
       {/* Feedback Section */}
       <FeedbackComponent pageName="Day 1" />

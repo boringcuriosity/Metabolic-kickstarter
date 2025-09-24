@@ -50,8 +50,6 @@ export function Day4({ onResourceClick, onProductClick }: Day4Props) {
       {/* Resources Section */}
       <AllResourcesDay4 />
 
-      {/* Recommended Product */}
-      <RecommendedProductDay4 onClick={onProductClick} />
 
       {/* Feedback Section */}
       <FeedbackComponent pageName="Day 4" />

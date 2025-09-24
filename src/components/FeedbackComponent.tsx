@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import styled from 'styled-components';
 import { CrossIcon } from './ui/CrossIcon';
 
 interface FeedbackComponentProps {
@@ -256,9 +255,9 @@ const FeedbackComponent = ({ pageName }: FeedbackComponentProps) => {
             </div>
 
             {/* Content */}
-            <div className="px-6 py-12">
+            <div className="px-6 py-[24px] flex flex-col gap-[24px]">
               {/* Subtext */}
-              <p className="text-[#667085] text-[14px] mb-8 font-['Roboto:Regular',_sans-serif] leading-[1.4]" style={{ fontVariationSettings: "'wdth' 100" }}>
+              <p className="text-[#667085] text-[14px] font-['Roboto:Regular',_sans-serif] leading-[1.4]" style={{ fontVariationSettings: "'wdth' 100" }}>
                 Didn't meet your expectations? Share your feedback — it truly guides how we improve
               </p>
               
@@ -268,33 +267,45 @@ const FeedbackComponent = ({ pageName }: FeedbackComponentProps) => {
                 onChange={(e) => setDislikeReason(e.target.value)}
                 placeholder="What would you like to say"
                 rows={4}
-                className="w-full p-4 mb-12 rounded-md border border-[#D0D5DD] resize-none focus:outline-none focus:ring-2 focus:ring-[#299d6b] focus:border-transparent font-['Roboto:Regular',_sans-serif] text-[14px] placeholder-[#98A2B3]"
+                className="w-full p-4 rounded-md border border-[#D0D5DD] resize-none focus:outline-none focus:ring-2 focus:ring-[#299d6b] focus:border-transparent font-['Roboto:Regular',_sans-serif] text-[14px] placeholder-[#98A2B3]"
                 style={{ fontVariationSettings: "'wdth' 100" }}
               />
               
               {/* CTA Button */}
-              <ButtonContainer $fullWidth={true}>
-                <ButtonShadow $isDisabled={!dislikeReason.trim() || isSubmitting} />
-                <StyledButton
-                  onClick={handleSubmitDislike}
-                  disabled={!dislikeReason.trim() || isSubmitting}
-                  $isDisabled={!dislikeReason.trim() || isSubmitting}
-                  $isPrimary={true}
-                  $fullWidth={true}
-                  style={{ 
-                    pointerEvents: (!dislikeReason.trim() || isSubmitting) ? 'none' : 'auto'
+              <button 
+                className="cta-button cta-button-primary"
+                onClick={handleSubmitDislike}
+                disabled={!dislikeReason.trim() || isSubmitting}
+                style={{ 
+                  pointerEvents: (!dislikeReason.trim() || isSubmitting) ? 'none' : 'auto',
+                  opacity: (!dislikeReason.trim() || isSubmitting) ? 0.6 : 1,
+                  cursor: (!dislikeReason.trim() || isSubmitting) ? 'not-allowed' : 'pointer',
+                  background: (!dislikeReason.trim() || isSubmitting) ? '#E6FAF1' : undefined
+                }}
+              >
+                <div 
+                  className="cta-button-front py-[22px] px-[16px] mx-[0px] m-[0px]"
+                  style={{
+                    background: (!dislikeReason.trim() || isSubmitting) ? '#CBF0E0' : undefined,
+                    color: (!dislikeReason.trim() || isSubmitting) ? '#ffffff' : undefined,
+                    boxShadow: (!dislikeReason.trim() || isSubmitting) ? '0 4px 0 #E6FAF1, 0 8px 16px rgba(230, 250, 241, 0.1), 0 2px 4px rgba(230, 250, 241, 0.05)' : undefined,
+                    transform: (!dislikeReason.trim() || isSubmitting) ? 'translateY(-8px)' : undefined
                   }}
                 >
                   {isSubmitting ? (
                     <div className="flex items-center gap-2">
                       <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                      Submitting...
+                      <span className="font-['Roboto:Bold',_sans-serif] text-[14px] tracking-[0.25px]" style={{ fontVariationSettings: "'wdth' 100" }}>
+                        Submitting...
+                      </span>
                     </div>
                   ) : (
-                    'Submit Feedback'
+                    <span className="font-['Roboto:Bold',_sans-serif] text-[14px] tracking-[0.25px]" style={{ fontVariationSettings: "'wdth' 100" }}>
+                      Submit Feedback
+                    </span>
                   )}
-                </StyledButton>
-              </ButtonContainer>
+                </div>
+              </button>
             </div>
           </div>
         </>
@@ -303,89 +314,5 @@ const FeedbackComponent = ({ pageName }: FeedbackComponentProps) => {
   );
 };
 
-// Styled Components for Button
-const ButtonContainer = styled.div<{ $fullWidth: boolean }>`
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: ${(props) => (props.$fullWidth ? '100%' : 'auto')};
-`;
-
-const ButtonShadow = styled.span<{ $isDisabled: boolean }>`
-  position: absolute;
-  inset: 0;
-  transform: translateY(8px);
-  background: ${(props) => props.$isDisabled ? '#E6FAF1' : 'rgba(0,0,0,0.15)'};
-  border-radius: 8px;
-`;
-
-const StyledButton = styled.button<{
-  $isDisabled: boolean;
-  $isPrimary: boolean;
-  $fullWidth: boolean;
-}>`
-  position: relative;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  border: none;
-  border-radius: 8px;
-  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-  cursor: ${(props) => (props.$isDisabled ? 'not-allowed' : 'pointer')};
-  width: ${(props) => (props.$fullWidth ? '100%' : 'auto')};
-  height: 48px;
-  padding: 12px 16px;
-  font-size: 16px;
-  
-  background: ${(props) => 
-    props.$isDisabled 
-      ? '#CBF0E0' 
-      : props.$isPrimary 
-        ? '#299d6b' 
-        : '#299d6b'
-  };
-  
-  color: ${(props) => 
-    props.$isDisabled 
-      ? '#ffffff' 
-      : '#ffffff'
-  };
-  
-  transform: translateY(-8px);
-  
-  box-shadow: ${(props) => 
-    props.$isDisabled 
-      ? '0 4px 0 #E6FAF1' 
-      : '0 4px 0 rgba(0,0,0,0.15), 0 8px 16px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.05)'
-  };
-
-  &:hover {
-    transform: ${(props) =>
-      props.$isDisabled ? 'translateY(-8px)' : 'translateY(-10px)'};
-    box-shadow: ${(props) =>
-      props.$isDisabled
-        ? '0 4px 0 #E6FAF1'
-        : '0 6px 0 rgba(0,0,0,0.15), 0 12px 24px rgba(0,0,0,0.12), 0 4px 8px rgba(0,0,0,0.08)'};
-  }
-
-  &:active {
-    transform: ${(props) => (props.$isDisabled ? 'translateY(-8px)' : 'translateY(-2px)')};
-    box-shadow: ${(props) =>
-      props.$isDisabled
-        ? '0 1px 0 #E6FAF1'
-        : '0 1px 0 rgba(0,0,0,0.2), 0 2px 8px rgba(0,0,0,0.15), 0 1px 2px rgba(0,0,0,0.1)'};
-  }
-
-  &:focus {
-    outline: none;
-    box-shadow: ${(props) =>
-      props.$isDisabled
-        ? '0 4px 0 #E6FAF1, 0 0 0 3px rgba(41, 157, 107, 0.1)'
-        : '0 4px 0 rgba(0,0,0,0.15), 0 8px 16px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.05), 0 0 0 3px rgba(41, 157, 107, 0.1)'};
-  }
-`;
 
 export default FeedbackComponent;

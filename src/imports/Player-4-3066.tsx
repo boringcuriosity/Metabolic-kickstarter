@@ -1,4 +1,3 @@
-import React from "react";
 import React, { useState, useRef, useEffect } from 'react';
 import svgPaths from "./svg-abts2o1rva";
 import Pause from './Pause';

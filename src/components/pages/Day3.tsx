@@ -46,8 +46,6 @@ export function Day3({ onResourceClick, onProductClick }: Day3Props) {
       {/* Resources Section */}
       <AllResourcesDay3 />
 
-      {/* Recommended Product */}
-      <RecommendedProductDay3 onClick={onProductClick} />
 
       {/* Feedback Section */}
       <FeedbackComponent pageName="Day 3" />

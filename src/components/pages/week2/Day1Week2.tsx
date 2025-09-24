@@ -76,8 +76,6 @@ export function Day1Week2({ onResourceClick, onProductClick }: Day1Week2Props) {
         </div>
       </div>
 
-      {/* Recommended Product */}
-      <RecommendedProduct onClick={onProductClick} />
 
       {/* Feedback Section */}
       <FeedbackComponent pageName="Day 1 - Week 2" />
