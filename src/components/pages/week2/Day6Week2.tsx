@@ -6,7 +6,7 @@ import GoalDay6Week2 from '../../../imports/GoalDay6Week2';
 import Heading from '../../../imports/Heading';
 import AllResourcesDay6 from '../../../imports/AllResourcesDay6';
 import BenefitsCalloutDay6Week2 from '../../BenefitsCalloutDay6Week2';
-import StatementStructureDay6 from '../../../imports/StatementStructure-28-3602';
+import { HowToAchieveDay6Week2 } from '../../HowToAchieveDay6Week2';
 import MessagesDay6 from '../../../imports/Messages-28-3627';
 import FeedbackComponent from '../../FeedbackComponent';
 
@@ -42,7 +42,7 @@ export function Day6Week2({ onResourceClick }: Day6Week2Props) {
 
         <BenefitsCalloutDay6Week2 />
 
-        <StatementStructureDay6 />
+        <HowToAchieveDay6Week2 />
       </div>
 
       {/* Messages Section */}

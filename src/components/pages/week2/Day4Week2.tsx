@@ -7,7 +7,7 @@ import GoalDay4Week2 from '../../../imports/GoalDay4Week2';
 import Heading from '../../../imports/Heading';
 import AllResourcesDay4 from '../../../imports/AllResourcesDay4';
 import BenefitsCalloutDay4Week2 from '../../BenefitsCalloutDay4Week2';
-import StatementStructureDay4 from '../../../imports/StatementStructure-28-3048';
+import { HowToAchieveDay4Week2 } from '../../HowToAchieveDay4Week2';
 import { RecommendedProductDay4 } from '../../RecommendedProductDay4';
 import FeedbackComponent from '../../FeedbackComponent';
 
@@ -44,7 +44,7 @@ export function Day4Week2({ onResourceClick, onProductClick }: Day4Week2Props) {
 
         <BenefitsCalloutDay4Week2 />
 
-        <StatementStructureDay4 />
+        <HowToAchieveDay4Week2 />
       </div>
 
       {/* Resources Section */}

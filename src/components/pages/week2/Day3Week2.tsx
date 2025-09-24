@@ -5,7 +5,7 @@ import PodcastSectionDay3Week2 from '../../../imports/PodcastSectionDay3Week2';
 import GoalDay3Week2 from '../../../imports/GoalDay3Week2';
 import AllResourcesDay3 from '../../../imports/AllResourcesDay3';
 import BenefitsCalloutDay3Week2 from '../../BenefitsCalloutDay3Week2';
-import StatementStructure from '../../../imports/StatementStructure-28-2785';
+import { HowToAchieveDay3Week2 } from '../../HowToAchieveDay3Week2';
 
 import { RecommendedProductDay3 } from '../../RecommendedProductDay3';
 import FeedbackComponent from '../../FeedbackComponent';
@@ -40,7 +40,7 @@ export function Day3Week2({ onResourceClick, onProductClick }: Day3Week2Props) {
 
         <BenefitsCalloutDay3Week2 />
 
-        <StatementStructure />
+        <HowToAchieveDay3Week2 />
       </div>
 
       {/* Resources Section */}

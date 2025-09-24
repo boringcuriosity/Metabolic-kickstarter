@@ -1,3 +1,4 @@
+import React from "react";
 import svgPaths from "./svg-e0l99mdyht";
 import imgFrame2 from "../assets/Day_1_cover.png";
 // Import the functional Player component

@@ -1,3 +1,4 @@
+import React from "react";
 import svgPaths from "./svg-dsrdvtdei7";
 import imgFrame3 from "figma:asset/1a49aaec4992129ac037c4ed3652405f29997b3c.png";
 

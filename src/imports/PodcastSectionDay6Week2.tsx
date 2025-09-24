@@ -1,3 +1,4 @@
+import React from "react";
 import svgPaths from "./svg-e0l99mdyht";
 import imgFrame2 from "figma:asset/day-6-week-2-podcast-cover.png";
 // Import the functional Player component

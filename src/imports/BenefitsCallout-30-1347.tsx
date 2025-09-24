@@ -1,3 +1,4 @@
+import React from "react";
 import iconLif from "../assets/Icon type=lif.png";
 import iconFood from "../assets/Icon type=food.png";
 

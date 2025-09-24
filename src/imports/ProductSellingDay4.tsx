@@ -1,3 +1,4 @@
+import React from "react";
 import imgImage30 from "figma:asset/089d25f7d521a6277cdb1d57767f62325fbd4419.png";
 
 export default function ProductSellingDay4() {

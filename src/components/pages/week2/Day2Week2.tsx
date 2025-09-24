@@ -5,7 +5,7 @@ import PodcastSectionDay2Week2 from '../../../imports/PodcastSectionDay2Week2';
 import GoalDay2Week2 from '../../../imports/GoalDay2Week2';
 import Heading from '../../../imports/Heading';
 import BenefitsCalloutDay2Week2 from '../../BenefitsCalloutDay2Week2';
-import StatementStructure from '../../../imports/StatementStructure-3-2813';
+import { HowToAchieveDay2Week2 } from '../../HowToAchieveDay2Week2';
 import AllResourcesDay2 from '../../../imports/AllResourcesDay2';
 import FeedbackComponent from '../../FeedbackComponent';
 
@@ -41,7 +41,7 @@ export function Day2Week2({ onResourceClick }: Day2Week2Props) {
 
         <BenefitsCalloutDay2Week2 />
 
-        <StatementStructure />
+        <HowToAchieveDay2Week2 />
       </div>
 
       {/* Resources Section */}

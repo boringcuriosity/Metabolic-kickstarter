@@ -1,3 +1,4 @@
+import React from "react";
 import imgImage18 from "figma:asset/03c41d1f5b8bff513caffcc2167c89fb71433e5c.png";
 
 function IconAndText() {

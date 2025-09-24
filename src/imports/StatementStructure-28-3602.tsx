@@ -1,3 +1,4 @@
+import React from "react";
 import svgPaths from "./svg-yqf8kcoeq";
 
 function BulletPoints() {

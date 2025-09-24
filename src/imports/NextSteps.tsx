@@ -1,3 +1,4 @@
+import React from "react";
 function InfoCard() {
   return (
     <div className="basis-0 bg-[#fffbee] grow h-full min-h-px min-w-px relative rounded-[16px] shrink-0" data-name="info card">

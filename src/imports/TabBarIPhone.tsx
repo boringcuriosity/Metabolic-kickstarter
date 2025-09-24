@@ -1,3 +1,4 @@
+import React from "react";
 function ButtonMain() {
   return (
     <div className="bg-[#299d6b] relative rounded-[8px] shrink-0 w-full" data-name="button_main">

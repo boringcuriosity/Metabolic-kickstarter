@@ -4,7 +4,7 @@ import { ThemeCard } from '../../ThemeCard';
 import { GoalSection } from '../../GoalSection';
 import { InfoSection } from '../../InfoSection';
 import { BenefitCards } from '../../BenefitCards';
-import { ActionChecklist } from '../../ActionChecklist';
+import { HowToAchieveDay1Week2 } from '../../HowToAchieveDay1Week2';
 
 import { ResourceCard } from '../../ResourceCard';
 import PodcastSectionDay1Week2 from '../../../imports/PodcastSectionDay1Week2';
@@ -21,39 +21,6 @@ interface Day1Week2Props {
 
 export function Day1Week2({ onResourceClick, onProductClick }: Day1Week2Props) {
   const [isPlaying, setIsPlaying] = useState(false);
-
-  const actionItems = [
-    {
-      id: "cooking",
-      title: "Already cooking or ordering?",
-      description: "Swap or add one ingredient for a protein source.",
-      subItems: [
-        {
-          category: "Veg",
-          items: "paneer, tofu, tempeh, sprouted moong, quinoa, amaranth"
-        },
-        {
-          category: "Non-veg",
-          items: "grilled chicken, boiled eggs, fish, prawns, turkey, lean mutton"
-        }
-      ]
-    },
-    {
-      id: "no-time",
-      title: "No time?",
-      description: "Keep quick grab-and-go protein options ready.",
-      subItems: [
-        {
-          category: "Veg",
-          items: "Roasted chana, Greek yogurt cups, paneer sandwich, hummus with whole-grain crackers"
-        },
-        {
-          category: "Non-veg",
-          items: "Boiled eggs, smoked salmon, canned tuna."
-        }
-      ]
-    }
-  ];
 
   return (
     <div className="content-stretch flex flex-col gap-[40px] items-center justify-start w-full p-[0px] mx-[0px] my-[8px] m-[0px]">
@@ -81,10 +48,7 @@ export function Day1Week2({ onResourceClick, onProductClick }: Day1Week2Props) {
 
         <BenefitsCalloutDay1Week2 />
 
-        <ActionChecklist 
-          title="How to achieve it?"
-          actions={actionItems}
-        />
+        <HowToAchieveDay1Week2 />
       </div>
 
       {/* Resources Section */}

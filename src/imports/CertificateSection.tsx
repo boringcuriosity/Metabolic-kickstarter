@@ -1,3 +1,4 @@
+import React from "react";
 import imgCertificate from "figma:asset/60309361a2da79234d083d7779f55f0d58dc97fb.png";
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
 

@@ -6,7 +6,7 @@ import PodcastSectionDay7Week2 from '../../../imports/PodcastSectionDay7Week2';
 import GoalDay7Week2 from '../../../imports/GoalDay7Week2';
 import AllResourcesDay7 from '../../../imports/AllResourcesDay7';
 import Messages from '../../../imports/Messages-28-2455';
-import StatementStructure from '../../../imports/StatementStructure-29-379';
+import { HowToAchieveDay7Week2 } from '../../HowToAchieveDay7Week2';
 import FeedbackComponent from '../../FeedbackComponent';
 
 interface Day7Week2Props {
@@ -39,7 +39,7 @@ export function Day7Week2({ onResourceClick }: Day7Week2Props) {
           content={`Health isn't about perfection — it's about balance. Giving yourself permission to celebrate helps you stay consistent in the long run. This "reset" reminds you that one treat doesn't undo your progress, it's simply part of living a sustainable lifestyle.`}
         />
 
-        <StatementStructure />
+        <HowToAchieveDay7Week2 />
       </div>
 
       {/* Messages Section */}

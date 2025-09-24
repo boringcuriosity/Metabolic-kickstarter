@@ -1,3 +1,4 @@
+import React from "react";
 import svgPaths from "./svg-4aceod0ix3";
 
 export default function Pause() {

@@ -1,3 +1,4 @@
+import React from "react";
 import iconMetabolism from "../assets/Icon type=Metabolism.png";
 import iconMuscle from "../assets/Icon type=Muscle.png";
 import { HowItHelpsData } from '../types/weekData';

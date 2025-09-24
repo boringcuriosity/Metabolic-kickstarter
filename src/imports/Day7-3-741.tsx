@@ -1,3 +1,4 @@
+import React from "react";
 import svgPaths from "./svg-rknsf701v2";
 
 function JourneyStages() {

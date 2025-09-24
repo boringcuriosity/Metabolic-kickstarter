@@ -1,3 +1,4 @@
+import React from "react";
 import imgChatGptImageAug182025100240Pm1 from "figma:asset/40f7cf7546bd9e0efe9124728ce832d5803d15d1.png";
 import imgChatGptImageAug182025100409Pm1 from "figma:asset/03d14d79726ef0cb6587b4ac134f69ea8f71b7e5.png";
 

@@ -1,3 +1,4 @@
+import React from "react";
 import imgImage20 from "figma:asset/d0ceada5a6e15910cb50f6362519865731987c21.png";
 
 export default function KairasResponse() {

@@ -1,3 +1,4 @@
+import React from "react";
 import iconBurn from "../assets/Icon type=burn.png";
 import iconIncrease from "../assets/Icon type=increase.png";
 

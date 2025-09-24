@@ -1,3 +1,4 @@
+import React from "react";
 import imgImage25 from "figma:asset/66510bae6d71644ddcd1542c20c23e2bc24e6738.png";
 import imgImage26 from "figma:asset/aa875488b979a1c01acefe0c660c7c262a7ed0c8.png";
 import imgImage18 from "figma:asset/03c41d1f5b8bff513caffcc2167c89fb71433e5c.png";

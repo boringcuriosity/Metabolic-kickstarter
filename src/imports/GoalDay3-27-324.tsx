@@ -1,3 +1,4 @@
+import React from "react";
 import svgPaths from "./svg-w6cbnx2gzg";
 
 function Heading() {

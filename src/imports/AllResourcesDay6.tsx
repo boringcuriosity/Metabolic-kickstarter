@@ -1,3 +1,4 @@
+import React from "react";
 import svgPaths from "./svg-j9hkghmytm";
 import imgChatGptImageAug182025073646Pm1 from "figma:asset/07b441b6bda080c8d5c8b43065b443eb0e890234.png";
 

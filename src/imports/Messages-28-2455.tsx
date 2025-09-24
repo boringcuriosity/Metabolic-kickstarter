@@ -1,3 +1,4 @@
+import React from "react";
 import svgPaths from "./svg-gxe2mrrb58";
 
 function Warning() {

@@ -1,3 +1,4 @@
+import React from "react";
 import imgImage29 from "figma:asset/76c5f2c6e2b0497bad874db94d09b149e7852a4b.png";
 
 export default function ProductSelling() {

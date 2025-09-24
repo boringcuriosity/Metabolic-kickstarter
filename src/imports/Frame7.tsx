@@ -1,3 +1,4 @@
+import React from "react";
 import imgCertificate from "figma:asset/week-2-certificate-of-completion.png";
 
 export default function Frame7() {

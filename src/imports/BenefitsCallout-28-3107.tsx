@@ -1,3 +1,4 @@
+import React from "react";
 import iconHormone from "../assets/Icon type=hormone.png";
 import iconSleep from "../assets/Icon type=sleep.png";
 

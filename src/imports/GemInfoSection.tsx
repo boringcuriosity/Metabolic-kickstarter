@@ -1,3 +1,4 @@
+import React from "react";
 import svgPaths from "./svg-0re2cs0imp";
 import imgFoundationGem from "figma:asset/foundation-gem.png";
 

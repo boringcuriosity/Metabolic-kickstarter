@@ -1,3 +1,4 @@
+import React from "react";
 import imgFrame5 from "figma:asset/5f57ee5964167f9dceed944478064bb1c4e0c022.png";
 
 function Frame5() {

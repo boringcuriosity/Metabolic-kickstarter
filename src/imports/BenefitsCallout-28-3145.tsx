@@ -1,3 +1,4 @@
+import React from "react";
 import iconPillow from "../assets/Icon type=pillow.png";
 import iconLotus from "../assets/Icon type=lotus.png";
 

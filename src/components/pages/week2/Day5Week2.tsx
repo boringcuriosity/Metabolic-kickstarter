@@ -7,8 +7,8 @@ import GoalDay5Week2 from '../../../imports/GoalDay5Week2';
 import Heading from '../../../imports/Heading';
 import AllResourcesDay5 from '../../../imports/AllResourcesDay5';
 import BenefitsCalloutDay5Week2 from '../../BenefitsCalloutDay5Week2';
-import StatementStructureDay5 from '../../../imports/StatementStructure-28-3260';
-import MessagesDay5 from '../../../imports/Messages-28-3289';
+import { HowToAchieveDay5Week2 } from '../../HowToAchieveDay5Week2';
+import { MessagesDay5Week2 } from '../../MessagesDay5Week2';
 import FeedbackComponent from '../../FeedbackComponent';
 
 interface Day5Week2Props {
@@ -43,11 +43,11 @@ export function Day5Week2({ onResourceClick }: Day5Week2Props) {
 
         <BenefitsCalloutDay5Week2 />
 
-        <StatementStructureDay5 />
+        <HowToAchieveDay5Week2 />
       </div>
 
       {/* Messages Section */}
-      <MessagesDay5 />
+      <MessagesDay5Week2 />
 
       {/* Resources Section */}
       <AllResourcesDay5 />

@@ -1,3 +1,4 @@
+import React from "react";
 import imgImage27 from "figma:asset/93f6c071156d9b7da1093ad07c7dd1829377e63d.png";
 
 export default function CheatDaySection() {
