@@ -2,6 +2,12 @@ import React, { useState, useRef, useEffect } from 'react';
 import svgPaths from "./svg-abts2o1rva";
 import Pause from './Pause';
 
+// Utility function to detect iOS devices
+const isIOS = () => {
+  return /iPad|iPhone|iPod/.test(navigator.userAgent) || 
+         (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+};
+
 interface ProgressBarProps {
   isPlaying: boolean;
   progress: number; // percentage from 0 to 100
@@ -157,13 +163,34 @@ interface PlayerFeelProps {
 }
 
 function PlayerFeel({ isPlaying, onPlayPause, progress, onSeek }: PlayerFeelProps) {
+  const lastClickTime = useRef(0);
+  
+  const handlePlayPauseClick = () => {
+    const now = Date.now();
+    console.log('Button clicked, time since last click:', now - lastClickTime.current);
+    // Debounce to prevent double clicks
+    if (now - lastClickTime.current < 300) {
+      console.log('Click debounced, ignoring');
+      return;
+    }
+    lastClickTime.current = now;
+    console.log('Calling onPlayPause');
+    onPlayPause();
+  };
+
   return (
     <div className="flex items-center justify-start w-full min-h-[32px] relative" data-name="player feel">
       {/* Play/Pause Button - Fixed width on left */}
       <button 
         className="relative shrink-0 size-[32px] cursor-pointer transition-transform hover:scale-105 active:scale-95" 
         data-name="Vector"
-        onClick={onPlayPause}
+        onClick={handlePlayPauseClick}
+        onTouchEnd={(e) => {
+          // iOS Safari: Only use touch events on iOS devices
+          if (isIOS() && e.cancelable) {
+            handlePlayPauseClick();
+          }
+        }}
         aria-label={isPlaying ? "Pause audio" : "Play audio"}
       >
         {isPlaying ? (
@@ -237,9 +264,10 @@ function LanguageToggle({ selectedLanguage, onLanguageChange }: LanguageTogglePr
 interface PlayerProps {
   englishUrl?: string;
   hindiUrl?: string;
+  onPlayPauseRef?: React.MutableRefObject<(() => void) | null>;
 }
 
-export default function Player({ englishUrl, hindiUrl }: PlayerProps) {
+export default function Player({ englishUrl, hindiUrl, onPlayPauseRef }: PlayerProps) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState<'english' | 'hindi'>('english');
   const [isLoading, setIsLoading] = useState(false);
@@ -260,6 +288,30 @@ export default function Player({ englishUrl, hindiUrl }: PlayerProps) {
     if (audio.src !== currentSrc) {
       audio.src = currentSrc;
     }
+    
+    // iOS Safari workaround: Ensure audio element is ready for user interaction
+    // This helps establish the user interaction context for iOS
+    const initializeAudio = () => {
+      if (audio.readyState === 0) {
+        audio.load();
+      }
+    };
+    
+    // Initialize audio on first user interaction
+    const handleFirstInteraction = () => {
+      initializeAudio();
+      document.removeEventListener('touchstart', handleFirstInteraction);
+      document.removeEventListener('click', handleFirstInteraction);
+    };
+    
+    // Add event listeners for first user interaction
+    document.addEventListener('touchstart', handleFirstInteraction, { once: true });
+    document.addEventListener('click', handleFirstInteraction, { once: true });
+    
+    return () => {
+      document.removeEventListener('touchstart', handleFirstInteraction);
+      document.removeEventListener('click', handleFirstInteraction);
+    };
   }, [selectedLanguage, audioUrls]);
 
   useEffect(() => {
@@ -316,23 +368,78 @@ export default function Player({ englishUrl, hindiUrl }: PlayerProps) {
     const audio = audioRef.current;
     if (!audio || isLoading) return;
 
+    console.log('handlePlayPause called, isPlaying:', isPlaying, 'isLoading:', isLoading);
+
     if (isPlaying) {
+      console.log('Pausing audio');
       audio.pause();
       setIsPlaying(false);
     } else {
+      console.log('Playing audio');
       setIsLoading(true);
-      audio.play()
-        .then(() => {
-          setIsPlaying(true);
-          setIsLoading(false);
-        })
-        .catch((error) => {
-          console.error('Error playing audio:', error);
-          setIsPlaying(false);
-          setIsLoading(false);
-        });
+      
+      // iOS Safari requires the audio element to be properly initialized
+      // Ensure the audio is loaded and ready
+      if (audio.readyState < 2) {
+        audio.load();
+      }
+      
+      // For iOS Safari, we need to ensure the audio element has been "touched"
+      // by setting currentTime to establish user interaction context
+      try {
+        if (audio.currentTime === 0) {
+          audio.currentTime = 0.1;
+          audio.currentTime = 0;
+        }
+      } catch (e) {
+        // Ignore errors, this is just to establish user interaction
+      }
+      
+      const playPromise = audio.play();
+      
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            setIsPlaying(true);
+            setIsLoading(false);
+          })
+          .catch((error) => {
+            console.error('Error playing audio:', error);
+            setIsPlaying(false);
+            setIsLoading(false);
+            
+            // If play fails, try to load and play again
+            if (error.name === 'NotAllowedError') {
+              console.warn('Audio playback blocked, attempting to load and retry...');
+              audio.load();
+              setTimeout(() => {
+                audio.play()
+                  .then(() => {
+                    setIsPlaying(true);
+                    setIsLoading(false);
+                  })
+                  .catch((retryError) => {
+                    console.error('Retry failed:', retryError);
+                    setIsPlaying(false);
+                    setIsLoading(false);
+                  });
+              }, 100);
+            }
+          });
+      } else {
+        // Fallback for older browsers
+        setIsPlaying(true);
+        setIsLoading(false);
+      }
     }
   }, [isPlaying, isLoading]);
+
+  // Expose the handlePlayPause function through ref for external use (e.g., cover image click)
+  useEffect(() => {
+    if (onPlayPauseRef) {
+      onPlayPauseRef.current = handlePlayPause;
+    }
+  }, [handlePlayPause, onPlayPauseRef]);
 
   const handleLanguageChange = React.useCallback((language: 'english' | 'hindi') => {
     const audio = audioRef.current;
@@ -383,6 +490,9 @@ export default function Player({ englishUrl, hindiUrl }: PlayerProps) {
       <audio 
         ref={audioRef}
         preload="metadata"
+        playsInline
+        webkit-playsinline="true"
+        controls={false}
         className="hidden"
       />
       
