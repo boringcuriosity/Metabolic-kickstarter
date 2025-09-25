@@ -3,9 +3,10 @@ import { CrossIcon } from './ui/CrossIcon';
 
 interface FeedbackComponentProps {
   pageName?: string;
+  question?: string;
 }
 
-const FeedbackComponent = ({ pageName }: FeedbackComponentProps) => {
+const FeedbackComponent = ({ pageName, question = "Was this helpful?" }: FeedbackComponentProps) => {
   const [feedbackSubmitted, setFeedbackSubmitted] = useState(false);
   const [isLiked, setIsLiked] = useState<boolean | null>(null);
   const [showBottomSheet, setShowBottomSheet] = useState(false);
@@ -168,7 +169,7 @@ const FeedbackComponent = ({ pageName }: FeedbackComponentProps) => {
       {!feedbackSubmitted ? (
         <div className="bg-[#f2f4f7] box-border flex gap-[16px] items-center justify-start px-[16px] py-[8px] relative rounded-[16px]">
           <div className="font-['Roboto:Regular',_sans-serif] font-normal leading-[0] relative text-[#667085] text-[12px] text-center text-nowrap tracking-[0.25px]" style={{ fontVariationSettings: "'wdth' 100" }}>
-            <p className="leading-[1.2] whitespace-pre">Was this helpful?</p>
+            <p className="leading-[1.2] whitespace-pre">{question}</p>
           </div>
           <div className="flex gap-[16px] items-center justify-start relative">
             <button 

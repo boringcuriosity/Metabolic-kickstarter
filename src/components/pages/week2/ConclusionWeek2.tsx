@@ -3,6 +3,7 @@ import KairasResponse from '../../../imports/KairasResponse';
 import NextStepsWeek2 from '../../../imports/NextStepsWeek2';
 import Poster from '../../../imports/Poster-16-71';
 import Frame7 from '../../../imports/Frame7';
+import FeedbackComponent from '../../FeedbackComponent';
 
 interface ConclusionWeek2Props {
   onUnlockWeek3?: () => void;
@@ -29,6 +30,16 @@ export function ConclusionWeek2({ onUnlockWeek3 }: ConclusionWeek2Props) {
       <div className="w-full px-4 pb-[24px] pt-[0px] pr-[0px] pl-[0px]">
         <div className="w-full">
           <NextStepsWeek2 />
+        </div>
+      </div>
+
+      {/* Feedback Section */}
+      <div className="w-full px-4 pb-[32px] pt-[0px] pr-[0px] pl-[0px]">
+        <div className="w-full flex justify-center">
+          <FeedbackComponent 
+            pageName="Week 2 Conclusion" 
+            question="Was this Metabolic Kickstarter helpful?" 
+          />
         </div>
       </div>
 
