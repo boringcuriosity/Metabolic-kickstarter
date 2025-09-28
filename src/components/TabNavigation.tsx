@@ -53,10 +53,10 @@ export function TabNavigation({ tabs, onTabClick }: TabNavigationProps) {
               ? 'bg-[#e6faf1]' 
               : ''
           }`}>
-            <div className={`font-['Roboto:Regular',_sans-serif] font-normal leading-[0] relative shrink-0 text-[16px] text-nowrap tracking-[0.25px] transition-all duration-500 ease-out ${
+            <div className={`leading-[0] relative shrink-0 text-[16px] text-nowrap tracking-[0.25px] transition-all duration-500 ease-out ${
               tab.isActive 
-                ? 'text-[#1d4d38] font-bold' 
-                : 'text-[#101828]'
+                ? 'text-[#1d4d38] font-[\'Roboto:Bold\',_sans-serif] font-bold' 
+                : 'text-[#101828] font-[\'Roboto:Regular\',_sans-serif] font-normal'
             }`} style={{ fontVariationSettings: "'wdth' 100" }}>
               <p className="leading-[1.5] whitespace-pre">{tab.label}</p>
             </div>

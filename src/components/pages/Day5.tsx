@@ -38,7 +38,7 @@ export function Day5({ onResourceClick }: Day5Props) {
 
         <InfoSection 
           title="Why it matters?"
-          content="Stress isn't just a mental hurdle — it directly impacts your metabolism, sleep, and appetite control. Chronic stress keeps cortisol levels high, which can make fat loss harder and increase cravings."
+          content="Stress isn't just a mental hurdle it directly impacts your metabolism, sleep, and appetite control. Chronic stress keeps cortisol levels high, which can make fat loss harder and increase cravings."
         />
 
         <BenefitsCalloutDay5New />

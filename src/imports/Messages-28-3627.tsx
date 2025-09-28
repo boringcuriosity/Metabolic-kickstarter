@@ -28,7 +28,7 @@ function RedoTask() {
         <div className="box-border content-stretch flex gap-[12px] items-start justify-start px-[16px] py-[12px] relative w-full">
           <IconForGoal />
           <div className="basis-0 font-['Roboto:Regular',_sans-serif] font-normal grow leading-[0] min-h-px min-w-px relative self-stretch shrink-0 text-[#101828] text-[14px] tracking-[0.25px]" style={{ fontVariationSettings: "'wdth' 100" }}>
-            <p className="leading-[1.2]">If this isn’t for you, skip it today. Just focus on reinforcing the habits you’ve built so far — protein, hydration, movement, and sleep. Consistency matters more than perfection.</p>
+            <p className="leading-[1.2]">If this isn't for you, skip it today. Just focus on reinforcing the habits you've built so far protein, hydration, movement, and sleep. Consistency matters more than perfection.</p>
           </div>
         </div>
       </div>

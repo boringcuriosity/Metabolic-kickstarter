@@ -767,7 +767,7 @@ function GemInfoContent() {
       <GemName />
       <SpecialReward />
       <div className="font-['Roboto:Regular',_sans-serif] font-normal leading-[0] min-w-full relative shrink-0 text-[#667085] text-[14px] tracking-[0.25px]" style={{ width: "min-content", fontVariationSettings: "'wdth' 100" }}>
-        <p className="leading-[1.5]">{`You're ahead of 50% of the GoodFlip family — only half take this first step to begin their journey`}</p>
+        <p className="leading-[1.5]">{`You're ahead of 50% of the GoodFlip family only half take this first step to begin their journey`}</p>
       </div>
     </div>
   );
@@ -833,7 +833,7 @@ function TrustIndicators() {
   return (
     <div className="absolute box-border content-stretch flex flex-col gap-[8px] items-center justify-center left-0 px-[16px] py-0 top-[1314px] w-[390px]" data-name="Trust indicators">
       <div className="font-['Roboto:Regular',_sans-serif] font-normal leading-[0] relative shrink-0 text-[#667085] text-[14px] tracking-[0.25px] w-full" style={{ fontVariationSettings: "'wdth' 100" }}>
-        <p className="leading-[1.2]">This program is rooted in proven holistic frameworks — endorsed by leading wellness experts and medical research from:</p>
+        <p className="leading-[1.2]">This program is rooted in proven holistic frameworks endorsed by leading wellness experts and medical research from:</p>
       </div>
       <AllLogos />
     </div>

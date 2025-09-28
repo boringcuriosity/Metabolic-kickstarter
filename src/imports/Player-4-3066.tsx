@@ -16,6 +16,7 @@ interface ProgressBarProps {
 
 function ProgressBar({ isPlaying, progress, onSeek }: ProgressBarProps) {
   const [animationPhase, setAnimationPhase] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -90,13 +91,57 @@ function ProgressBar({ isPlaying, progress, onSeek }: ProgressBarProps) {
     { height: 15, ml: 154.56, mt: 4, index: 55 }
   ], []);
 
-  const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
-    if (!containerRef.current) return;
+  const calculatePercentage = (clientX: number) => {
+    if (!containerRef.current) return 0;
     
     const rect = containerRef.current.getBoundingClientRect();
-    const clickX = event.clientX - rect.left;
-    const percentage = (clickX / rect.width) * 100;
-    onSeek(Math.max(0, Math.min(100, percentage)));
+    const x = clientX - rect.left;
+    const percentage = (x / rect.width) * 100;
+    return Math.max(0, Math.min(100, percentage));
+  };
+
+  const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
+    if (isDragging) return; // Prevent click if we were dragging
+    const percentage = calculatePercentage(event.clientX);
+    onSeek(percentage);
+  };
+
+  const handleMouseDown = (event: React.MouseEvent<HTMLDivElement>) => {
+    setIsDragging(true);
+    const percentage = calculatePercentage(event.clientX);
+    onSeek(percentage);
+  };
+
+  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
+    if (!isDragging) return;
+    const percentage = calculatePercentage(event.clientX);
+    onSeek(percentage);
+  };
+
+  const handleMouseUp = () => {
+    // Add a small delay to prevent click event from firing after drag
+    setTimeout(() => setIsDragging(false), 10);
+  };
+
+  const handleTouchStart = (event: React.TouchEvent<HTMLDivElement>) => {
+    event.preventDefault();
+    setIsDragging(true);
+    const touch = event.touches[0];
+    const percentage = calculatePercentage(touch.clientX);
+    onSeek(percentage);
+  };
+
+  const handleTouchMove = (event: React.TouchEvent<HTMLDivElement>) => {
+    if (!isDragging) return;
+    event.preventDefault();
+    const touch = event.touches[0];
+    const percentage = calculatePercentage(touch.clientX);
+    onSeek(percentage);
+  };
+
+  const handleTouchEnd = () => {
+    // Add a small delay to prevent click event from firing after drag
+    setTimeout(() => setIsDragging(false), 10);
   };
 
   const getBarHeight = React.useCallback((baseHeight: number, index: number) => {
@@ -120,12 +165,60 @@ function ProgressBar({ isPlaying, progress, onSeek }: ProgressBarProps) {
     return '#d0d5dd';
   }, [progress, isPlaying, animationPhase, bars.length]);
 
+  // Add global event listeners for mouse/touch events when dragging
+  useEffect(() => {
+    if (!isDragging) return;
+
+    const handleGlobalMouseMove = (event: MouseEvent) => {
+      const percentage = calculatePercentage(event.clientX);
+      onSeek(percentage);
+    };
+
+    const handleGlobalMouseUp = () => {
+      // Add a small delay to prevent click event from firing after drag
+      setTimeout(() => setIsDragging(false), 10);
+    };
+
+    const handleGlobalTouchMove = (event: TouchEvent) => {
+      event.preventDefault();
+      const touch = event.touches[0];
+      const percentage = calculatePercentage(touch.clientX);
+      onSeek(percentage);
+    };
+
+    const handleGlobalTouchEnd = () => {
+      // Add a small delay to prevent click event from firing after drag
+      setTimeout(() => setIsDragging(false), 10);
+    };
+
+    document.addEventListener('mousemove', handleGlobalMouseMove);
+    document.addEventListener('mouseup', handleGlobalMouseUp);
+    document.addEventListener('touchmove', handleGlobalTouchMove, { passive: false });
+    document.addEventListener('touchend', handleGlobalTouchEnd);
+
+    return () => {
+      document.removeEventListener('mousemove', handleGlobalMouseMove);
+      document.removeEventListener('mouseup', handleGlobalMouseUp);
+      document.removeEventListener('touchmove', handleGlobalTouchMove);
+      document.removeEventListener('touchend', handleGlobalTouchEnd);
+    };
+  }, [isDragging, onSeek]);
+
   return (
     <div 
       ref={containerRef}
-      className="w-full h-[23px] relative cursor-pointer overflow-hidden" 
+      className={`w-full h-[23px] relative overflow-hidden select-none transition-all duration-150 ${
+        isDragging ? 'cursor-grabbing' : 'cursor-pointer'
+      }`}
       data-name="Interactive Audio Spectrum"
       onClick={handleClick}
+      onMouseDown={handleMouseDown}
+      onMouseMove={handleMouseMove}
+      onMouseUp={handleMouseUp}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+      style={{ touchAction: 'none' }}
     >
       {/* Responsive spectrum container with distributed bars */}
       <div 
@@ -139,7 +232,9 @@ function ProgressBar({ isPlaying, progress, onSeek }: ProgressBarProps) {
           return (
             <div 
               key={idx}
-              className="rounded-[6.413px] transition-all duration-150 hover:scale-110 flex-shrink-0"
+              className={`rounded-[6.413px] transition-all duration-150 flex-shrink-0 ${
+                isDragging ? 'scale-105' : 'hover:scale-110'
+              }`}
               style={{
                 backgroundColor: color,
                 height: `${animatedHeight}px`,
@@ -163,18 +258,10 @@ interface PlayerFeelProps {
 }
 
 function PlayerFeel({ isPlaying, onPlayPause, progress, onSeek }: PlayerFeelProps) {
-  const lastClickTime = useRef(0);
-  
-  const handlePlayPauseClick = () => {
-    const now = Date.now();
-    console.log('Button clicked, time since last click:', now - lastClickTime.current);
-    // Debounce to prevent double clicks
-    if (now - lastClickTime.current < 300) {
-      console.log('Click debounced, ignoring');
-      return;
-    }
-    lastClickTime.current = now;
-    console.log('Calling onPlayPause');
+  const handlePointerUp = (e: React.PointerEvent<HTMLButtonElement>) => {
+    // Prevent the synthetic click from firing after touch on iOS
+    e.preventDefault();
+    e.stopPropagation();
     onPlayPause();
   };
 
@@ -182,15 +269,11 @@ function PlayerFeel({ isPlaying, onPlayPause, progress, onSeek }: PlayerFeelProp
     <div className="flex items-center justify-start w-full min-h-[32px] relative" data-name="player feel">
       {/* Play/Pause Button - Fixed width on left */}
       <button 
+        type="button"
         className="relative shrink-0 size-[32px] cursor-pointer transition-transform hover:scale-105 active:scale-95" 
         data-name="Vector"
-        onClick={handlePlayPauseClick}
-        onTouchEnd={(e) => {
-          // iOS Safari: Only use touch events on iOS devices
-          if (isIOS() && e.cancelable) {
-            handlePlayPauseClick();
-          }
-        }}
+        onPointerUp={handlePointerUp}
+        style={{ touchAction: 'manipulation' }} // tells mobile Safari we're handling taps
         aria-label={isPlaying ? "Pause audio" : "Play audio"}
       >
         {isPlaying ? (
@@ -220,11 +303,19 @@ interface ToggleProps {
 }
 
 function Toggle({ isActive, onClick, children }: ToggleProps) {
+  const onPointerUp = (e: React.PointerEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    onClick();
+  };
+
   return (
     <button 
+      type="button"
       className={`${isActive ? 'bg-white shadow-[0px_1px_3px_0px_rgba(16,24,40,0.1),0px_1px_2px_0px_rgba(16,24,40,0.06)]' : ''} box-border content-stretch flex gap-[4px] items-center justify-center overflow-clip px-[8px] sm:px-[12px] py-[6px] sm:py-[8px] relative rounded-[100px] shrink-0 cursor-pointer transition-all duration-200 hover:bg-white hover:shadow-[0px_1px_3px_0px_rgba(16,24,40,0.1),0px_1px_2px_0px_rgba(16,24,40,0.06)]`}
       data-name="Toggle"
-      onClick={onClick}
+      onPointerUp={onPointerUp}
+      style={{ touchAction: 'manipulation' }}
     >
       <div className="font-['Roboto:Regular',_sans-serif] font-normal leading-[0] relative shrink-0 text-[#299d6b] text-[0px] text-nowrap tracking-[0.25px]" style={{ fontVariationSettings: "'wdth' 100" }}>
         {children}
@@ -280,39 +371,24 @@ export default function Player({ englishUrl, hindiUrl, onPlayPauseRef }: PlayerP
     hindi: hindiUrl || 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Hindi_hey_there-JXFjV9k3CJa5sxExXe2uBoK1lJLJlq.mp3'
   }), [englishUrl, hindiUrl]);
 
+  const src = audioUrls[selectedLanguage];
+
+  // Reset flags and load audio when src changes
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
 
-    const currentSrc = audioUrls[selectedLanguage];
-    if (audio.src !== currentSrc) {
-      audio.src = currentSrc;
-    }
-    
-    // iOS Safari workaround: Ensure audio element is ready for user interaction
-    // This helps establish the user interaction context for iOS
-    const initializeAudio = () => {
-      if (audio.readyState === 0) {
-        audio.load();
-      }
-    };
-    
-    // Initialize audio on first user interaction
-    const handleFirstInteraction = () => {
-      initializeAudio();
-      document.removeEventListener('touchstart', handleFirstInteraction);
-      document.removeEventListener('click', handleFirstInteraction);
-    };
-    
-    // Add event listeners for first user interaction
-    document.addEventListener('touchstart', handleFirstInteraction, { once: true });
-    document.addEventListener('click', handleFirstInteraction, { once: true });
-    
-    return () => {
-      document.removeEventListener('touchstart', handleFirstInteraction);
-      document.removeEventListener('click', handleFirstInteraction);
-    };
-  }, [selectedLanguage, audioUrls]);
+    // pause & reset flags
+    audio.pause();
+    setIsPlaying(false);
+    setIsLoading(false);
+    setCurrentTime(0);
+    setDuration(0);
+
+    // ensure the new source is fully acknowledged by the element
+    // (you already pass src as a prop; calling load() here is what matters)
+    audio.load();
+  }, [src]);
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -366,73 +442,18 @@ export default function Player({ englishUrl, hindiUrl, onPlayPauseRef }: PlayerP
 
   const handlePlayPause = React.useCallback(() => {
     const audio = audioRef.current;
-    if (!audio || isLoading) return;
-
-    console.log('handlePlayPause called, isPlaying:', isPlaying, 'isLoading:', isLoading);
+    if (!audio) return;
 
     if (isPlaying) {
-      console.log('Pausing audio');
       audio.pause();
       setIsPlaying(false);
     } else {
-      console.log('Playing audio');
       setIsLoading(true);
-      
-      // iOS Safari requires the audio element to be properly initialized
-      // Ensure the audio is loaded and ready
-      if (audio.readyState < 2) {
-        audio.load();
-      }
-      
-      // For iOS Safari, we need to ensure the audio element has been "touched"
-      // by setting currentTime to establish user interaction context
-      try {
-        if (audio.currentTime === 0) {
-          audio.currentTime = 0.1;
-          audio.currentTime = 0;
-        }
-      } catch (e) {
-        // Ignore errors, this is just to establish user interaction
-      }
-      
-      const playPromise = audio.play();
-      
-      if (playPromise !== undefined) {
-        playPromise
-          .then(() => {
-            setIsPlaying(true);
-            setIsLoading(false);
-          })
-          .catch((error) => {
-            console.error('Error playing audio:', error);
-            setIsPlaying(false);
-            setIsLoading(false);
-            
-            // If play fails, try to load and play again
-            if (error.name === 'NotAllowedError') {
-              console.warn('Audio playback blocked, attempting to load and retry...');
-              audio.load();
-              setTimeout(() => {
-                audio.play()
-                  .then(() => {
-                    setIsPlaying(true);
-                    setIsLoading(false);
-                  })
-                  .catch((retryError) => {
-                    console.error('Retry failed:', retryError);
-                    setIsPlaying(false);
-                    setIsLoading(false);
-                  });
-              }, 100);
-            }
-          });
-      } else {
-        // Fallback for older browsers
-        setIsPlaying(true);
-        setIsLoading(false);
-      }
+      audio.play()
+        .then(() => { setIsPlaying(true); setIsLoading(false); })
+        .catch(() => { setIsPlaying(false); setIsLoading(false); });
     }
-  }, [isPlaying, isLoading]);
+  }, [isPlaying]);
 
   // Expose the handlePlayPause function through ref for external use (e.g., cover image click)
   useEffect(() => {
@@ -443,32 +464,16 @@ export default function Player({ englishUrl, hindiUrl, onPlayPauseRef }: PlayerP
 
   const handleLanguageChange = React.useCallback((language: 'english' | 'hindi') => {
     const audio = audioRef.current;
-    const wasPlaying = isPlaying;
-    
+
     if (isPlaying && audio) {
       audio.pause();
       setIsPlaying(false);
     }
-    
-    // Reset progress when changing language
+
     setCurrentTime(0);
     setDuration(0);
     setSelectedLanguage(language);
-    
-    // Resume playing with new language if it was playing before
-    if (wasPlaying) {
-      setTimeout(() => {
-        if (audio && !isLoading) {
-          audio.play()
-            .then(() => setIsPlaying(true))
-            .catch((error) => {
-              console.error('Error resuming audio:', error);
-              setIsPlaying(false);
-            });
-        }
-      }, 200);
-    }
-  }, [isPlaying, isLoading]);
+  }, [isPlaying]);
 
   // Calculate progress percentage
   const progress = React.useMemo(() => {
@@ -491,9 +496,10 @@ export default function Player({ englishUrl, hindiUrl, onPlayPauseRef }: PlayerP
         ref={audioRef}
         preload="metadata"
         playsInline
-        webkit-playsinline="true"
         controls={false}
         className="hidden"
+        src={src}
+        crossOrigin="anonymous"
       />
       
       {/* Responsive player layout */}

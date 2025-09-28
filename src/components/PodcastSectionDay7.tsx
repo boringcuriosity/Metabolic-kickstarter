@@ -34,7 +34,7 @@ function CoverAndSupportingText({ onCoverClick }: { onCoverClick?: () => void })
         <div className="box-border content-stretch flex gap-[16px] items-center justify-start px-[16px] py-0 relative w-full">
           <Frame9 onCoverClick={onCoverClick} />
           <div className="basis-0 font-['Roboto:Regular',_sans-serif] font-normal grow leading-[0] min-h-px min-w-px relative shrink-0 text-[#667085] text-[14px] tracking-[0.25px]" style={{ fontVariationSettings: "'wdth' 100" }}>
-            <p className="leading-[1.5]">You've made it through 6 days of commitment.Today is not about rules — it's about enjoying yourself and recognising how far you've come.</p>
+            <p className="leading-[1.5]">You've made it through 6 days of commitment.Today is not about rules it's about enjoying yourself and recognising how far you've come.</p>
           </div>
         </div>
       </div>

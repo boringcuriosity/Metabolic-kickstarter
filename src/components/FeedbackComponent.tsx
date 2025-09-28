@@ -259,7 +259,7 @@ const FeedbackComponent = ({ pageName, question = "Was this helpful?" }: Feedbac
             <div className="px-6 py-[24px] flex flex-col gap-[24px]">
               {/* Subtext */}
               <p className="text-[#667085] text-[14px] font-['Roboto:Regular',_sans-serif] leading-[1.4]" style={{ fontVariationSettings: "'wdth' 100" }}>
-                Didn't meet your expectations? Share your feedback — it truly guides how we improve
+                Didn't meet your expectations? Share your feedback it truly guides how we improve
               </p>
               
               {/* Textarea */}

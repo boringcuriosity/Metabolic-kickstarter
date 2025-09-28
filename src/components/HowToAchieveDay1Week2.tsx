@@ -31,7 +31,7 @@ export function HowToAchieveDay1Week2({ onItemComplete }: HowToAchieveDay1Week2P
       subItems: [
         {
           category: "",
-          items: "Think sabzi, dal with veggies, salad, or a veggie-rich curry — bhindi, palak, lauki, beans, carrot, cabbage, cucumber, sprouts."
+          items: "Think sabzi, dal with veggies, salad, or a veggie-rich curry bhindi, palak, lauki, beans, carrot, cabbage, cucumber, sprouts."
         }
       ]
     },
@@ -49,8 +49,8 @@ export function HowToAchieveDay1Week2({ onItemComplete }: HowToAchieveDay1Week2P
   ];
 
   return (
-    <div className="box-border content-stretch flex flex-col gap-[8px] items-start justify-start px-[16px] py-0 relative shrink-0 w-full">
-      <div className="font-['Roboto:Regular',_sans-serif] font-normal leading-[0] min-w-full relative shrink-0 text-[#667085] text-[14px] tracking-[0.25px]" style={{ fontVariationSettings: "'wdth' 100", width: "min-content" }}>
+    <div className="box-border content-stretch flex flex-col gap-[8px] items-start justify-start px-[8px] sm:px-[16px] py-0 relative shrink-0 w-full">
+      <div className="font-['Roboto:Regular',_sans-serif] font-normal leading-[0] min-w-full relative shrink-0 text-[#667085] text-[14px] tracking-[0.25px]" style={{ fontVariationSettings: "'wdth' 100" }}>
         <p className="leading-[1.2]">How to achieve it?</p>
       </div>
       

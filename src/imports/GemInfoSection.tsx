@@ -77,7 +77,7 @@ function GemInfoContent() {
       <GemName />
       <SpecialReward />
       <div className="font-['Roboto:Regular',_sans-serif] font-normal leading-[0] min-w-full relative shrink-0 text-[#667085] text-[14px] tracking-[0.25px]" style={{ width: "min-content", fontVariationSettings: "'wdth' 100" }}>
-        <p className="leading-[1.5]">{`You're ahead of 50% of the GoodFlip family — only half take this first step to begin their journey`}</p>
+        <p className="leading-[1.5]">{`You're ahead of 50% of the GoodFlip family only half take this first step to begin their journey`}</p>
       </div>
     </div>
   );

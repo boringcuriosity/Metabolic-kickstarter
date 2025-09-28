@@ -22,7 +22,7 @@ export function Day4Week2({ onResourceClick, onProductClick }: Day4Week2Props) {
   return (
     <div className="content-stretch flex flex-col gap-[40px] items-center justify-start w-full p-[0px] mx-[0px] my-[8px] m-[0px] overflow-x-hidden">
       {/* Progress Dots */}
-      <div className="bg-gradient-to-b box-border content-stretch flex flex-col from-[#eef4ff] gap-[8px] items-center justify-start min-w-full pb-[0px] pt-[8px] px-[16px] to-[#ffffff] w-full pr-[16px] pl-[16px]">
+      <div className="bg-gradient-to-b box-border content-stretch flex flex-col from-[#eef4ff] gap-[8px] items-center justify-start min-w-full pb-[0px] pt-[8px] px-[16px] to-[#ffffff] w-full">
         <ProgressDots currentDay={4} totalDays={7} />
       </div>
 

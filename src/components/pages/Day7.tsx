@@ -18,7 +18,7 @@ export function Day7({ onResourceClick }: Day7Props) {
   return (
     <div className="content-stretch flex flex-col gap-[40px] items-center justify-start w-full p-[0px] overflow-x-hidden">
       {/* Progress Dots */}
-      <div className="bg-gradient-to-b box-border content-stretch flex flex-col from-[#eef4ff] gap-[8px] items-center justify-start min-w-full pb-[10px] pt-[16px] px-[16px] to-[#ffffff] w-full pr-[16px] pl-[16px]">
+      <div className="bg-gradient-to-b box-border content-stretch flex flex-col from-[#eef4ff] gap-[8px] items-center justify-start min-w-full pb-[10px] pt-[16px] px-[16px] to-[#ffffff] w-full">
         <ProgressDots currentDay={7} totalDays={7} />
       </div>
 
@@ -36,7 +36,7 @@ export function Day7({ onResourceClick }: Day7Props) {
 
         <InfoSection 
           title="Why it matters?"
-          content="Health isn't about perfection — it's about balance. Giving yourself permission to celebrate helps you stay consistent in the long run. This 'reset' reminds you that one treat doesn't undo your progress, it's simply part of living a sustainable lifestyle."
+          content="Health isn't about perfection it's about balance. Giving yourself permission to celebrate helps you stay consistent in the long run. This 'reset' reminds you that one treat doesn't undo your progress, it's simply part of living a sustainable lifestyle."
         />
 
         <StatementStructure />

@@ -67,7 +67,7 @@ function Statements1() {
     <div className="box-border content-stretch flex gap-[8px] items-start justify-start pl-[24px] pr-0 py-0 relative shrink-0 w-full" data-name="Statements">
       <BulletPoints1 />
       <div className="basis-0 font-['Roboto:Regular',_sans-serif] font-normal grow leading-[0] min-h-px min-w-px relative shrink-0 text-[#101828] text-[14px] tracking-[0.25px]" style={{ fontVariationSettings: "'wdth' 100" }}>
-        <p className="leading-[1.5]">Have just two nourishing meals today — one around midday and one in the evening. This gives your body extra rest while still keeping you fueled</p>
+        <p className="leading-[1.5]">Have just two nourishing meals today one around midday and one in the evening. This gives your body extra rest while still keeping you fueled</p>
       </div>
     </div>
   );
@@ -262,7 +262,7 @@ function Statements6() {
     <div className="box-border content-stretch flex gap-[8px] items-start justify-start pl-[24px] pr-0 py-0 relative shrink-0 w-full" data-name="Statements">
       <BulletPoints6 />
       <div className="basis-0 font-['Roboto:Regular',_sans-serif] font-normal grow leading-[0] min-h-px min-w-px relative shrink-0 text-[#101828] text-[14px] tracking-[0.25px]" style={{ fontVariationSettings: "'wdth' 100" }}>
-        <p className="leading-[1.5]">Fried foods, creamy gravies, packaged snacks, and sweets — they overload digestion</p>
+        <p className="leading-[1.5]">Fried foods, creamy gravies, packaged snacks, and sweets they overload digestion</p>
       </div>
     </div>
   );

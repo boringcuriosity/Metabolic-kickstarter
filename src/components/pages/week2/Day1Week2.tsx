@@ -23,9 +23,9 @@ export function Day1Week2({ onResourceClick, onProductClick }: Day1Week2Props) {
   const [isPlaying, setIsPlaying] = useState(false);
 
   return (
-    <div className="content-stretch flex flex-col gap-[40px] items-center justify-start w-full p-[0px] mx-[0px] my-[8px] m-[0px]">
+    <div className="content-stretch flex flex-col gap-[40px] items-center justify-start w-full p-[0px] mx-[0px] my-[8px] m-[0px] overflow-x-hidden max-w-full">
       {/* Progress Dots */}
-      <div className="bg-gradient-to-b box-border content-stretch flex flex-col from-[#eef4ff] gap-[8px] items-center justify-start min-w-full pb-[0px] pt-[8px] px-[16px] to-[#ffffff] w-full pr-[16px] pl-[16px]">
+      <div className="bg-gradient-to-b box-border content-stretch flex flex-col from-[#eef4ff] gap-[8px] items-center justify-start pb-[0px] pt-[8px] px-[8px] sm:px-[16px] to-[#ffffff] w-full max-w-full">
         <ProgressDots currentDay={1} totalDays={7} />
       </div>
 

@@ -19,7 +19,7 @@ function CoverAndSupportingText() {
         <div className="box-border content-stretch flex gap-[16px] items-center justify-start px-[16px] py-0 relative w-full">
           <Frame6 />
           <div className="basis-0 font-['Roboto:Regular',_sans-serif] font-normal grow leading-[0] min-h-px min-w-px relative shrink-0 text-[#667085] text-[14px] tracking-[0.25px]" style={{ fontVariationSettings: "'wdth' 100" }}>
-            <p className="leading-[1.5]">Peace doesn’t take hours—discover how five minutes today can shift everything.</p>
+            <p className="leading-[1.5]">Peace doesn't take hours discover how five minutes today can shift everything.</p>
           </div>
         </div>
       </div>

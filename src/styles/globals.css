@@ -186,6 +186,38 @@
 
 html {
   font-size: var(--font-size);
+  /* Prevent zooming and touch manipulation */
+  touch-action: manipulation;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  /* Additional zoom prevention */
+  touch-action: manipulation;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  overflow-x: hidden;
+}
+
+/* Allow text selection in input fields and textareas */
+input, textarea, [contenteditable] {
+  -webkit-user-select: text;
+  -khtml-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
 }
 
 /* Enhanced CTA Button Press Animation Styles */
@@ -376,5 +408,39 @@ html {
 
 .backdrop-fade-out {
   animation: backdropFadeOut 0.4s ease-in forwards;
+}
+
+/* Additional zoom prevention for mobile browsers */
+* {
+  touch-action: manipulation;
+}
+
+/* Prevent double-tap zoom on buttons and interactive elements */
+button, a, [role="button"], .cta-button {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Prevent zoom on form elements */
+input, select, textarea {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Prevent zoom on images */
+img {
+  touch-action: manipulation;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Allow pointer events on interactive images */
+img[onclick], img[role="button"], .clickable-image {
+  pointer-events: auto;
 }
 

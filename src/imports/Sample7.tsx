@@ -168,7 +168,7 @@ function CoverAndSupportingText() {
         <div className="box-border content-stretch flex gap-[16px] items-center justify-start px-[16px] py-0 relative w-full">
           <PodcastCover />
           <div className="basis-0 font-['Roboto:Regular',_sans-serif] font-normal grow leading-[0] min-h-px min-w-px relative shrink-0 text-[#667085] text-[14px] tracking-[0.25px]" style={{ fontVariationSettings: "'wdth' 100" }}>
-            <p className="leading-[1.5]">A tiny change can transform how full, energised, and balanced you feel—ready to find out how?</p>
+            <p className="leading-[1.5]">A tiny change can transform how full, energised, and balanced you feel ready to find out how?</p>
           </div>
         </div>
       </div>
@@ -382,7 +382,7 @@ function WhyItMattersSection() {
             <p className="leading-[1.2]">Why it matters?</p>
           </div>
           <div className="relative shrink-0 text-[#101828] w-full" style={{ fontVariationSettings: "'wdth' 100" }}>
-            <p className="leading-[1.5]">Your body can’t store protein like it does carbs or fat — you need a fresh supply daily. A high-protein meal gives your body the building blocks to repair muscles, keep your metabolism active, and stabilise energy levels.</p>
+            <p className="leading-[1.5]">Your body can't store protein like it does carbs or fat you need a fresh supply daily. A high-protein meal gives your body the building blocks to repair muscles, keep your metabolism active, and stabilise energy levels.</p>
           </div>
         </div>
       </div>
@@ -1391,7 +1391,7 @@ function MelatoinPoster() {
         <p className="leading-[normal] whitespace-pre">GoodFlip Smart BCA</p>
       </div>
       <div className="absolute font-['Roboto:Regular',_sans-serif] font-normal leading-[0] left-[99px] opacity-60 text-[14px] text-white top-[83px] tracking-[0.25px] w-[231px]" style={{ fontVariationSettings: "'wdth' 100" }}>
-        <p className="leading-[1.5]">Go beyond weight — track protein, muscle, fat, and 18 body metrics</p>
+        <p className="leading-[1.5]">Go beyond weight track protein, muscle, fat, and 18 body metrics</p>
       </div>
       <div className="absolute h-[21px] left-[9px] top-[204px] w-[101px]">
         <div className="absolute inset-[-57.14%_-11.88%]">

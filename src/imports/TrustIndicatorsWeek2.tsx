@@ -19,7 +19,7 @@ export default function TrustIndicators() {
       <div className="flex flex-col items-center justify-center relative size-full">
         <div className="box-border content-stretch flex flex-col gap-[8px] items-center justify-center px-[16px] py-0 relative size-full">
           <div className="font-['Roboto:Regular',_sans-serif] font-normal leading-[0] relative shrink-0 text-[#667085] text-[14px] text-center tracking-[0.25px] w-full" style={{ fontVariationSettings: "'wdth' 100" }}>
-            <p className="leading-[1.2]">This program is rooted in proven holistic frameworks — endorsed by leading wellness experts and medical research from:</p>
+            <p className="leading-[1.2]">This program is rooted in proven holistic frameworks endorsed by leading wellness experts and medical research from:</p>
           </div>
           <AllLogos />
         </div>

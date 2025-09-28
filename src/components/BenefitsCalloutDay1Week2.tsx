@@ -8,11 +8,11 @@ function InfoIcon() {
 
 function InfoCard() {
   return (
-    <div className="basis-0 bg-[#fffbee] grow h-full min-h-px min-w-px relative rounded-[16px] shrink-0" data-name="info card">
+    <div className="basis-0 bg-[#fffbee] grow h-full min-h-px relative rounded-[16px] shrink-0" data-name="info card">
       <div className="flex flex-col items-center overflow-clip relative size-full">
         <div className="box-border content-stretch flex flex-col gap-[16px] items-center justify-start p-[16px] relative size-full">
           <InfoIcon />
-          <div className="font-['Roboto:Regular',_sans-serif] font-normal leading-[0] min-w-full relative shrink-0 text-[#101828] text-[14px] text-center tracking-[0.25px]" style={{ width: "min-content", fontVariationSettings: "'wdth' 100" }}>
+          <div className="font-['Roboto:Regular',_sans-serif] font-normal leading-[0] min-w-full relative shrink-0 text-[#101828] text-[14px] text-center tracking-[0.25px]" style={{ fontVariationSettings: "'wdth' 100" }}>
             <p className="leading-[1.5]">Fibre slows sugar absorption, preventing sudden spikes and crashes in blood glucose</p>
           </div>
         </div>
@@ -32,11 +32,11 @@ function InfoIcon1() {
 
 function InfoCard1() {
   return (
-    <div className="basis-0 bg-[#fffbee] grow h-full min-h-px min-w-px relative rounded-[16px] shrink-0" data-name="info card">
+    <div className="basis-0 bg-[#fffbee] grow h-full min-h-px relative rounded-[16px] shrink-0" data-name="info card">
       <div className="flex flex-col items-center overflow-clip relative size-full">
         <div className="box-border content-stretch flex flex-col gap-[16px] items-center justify-start p-[16px] relative size-full">
           <InfoIcon1 />
-          <div className="font-['Roboto:Regular',_sans-serif] font-normal leading-[0] min-w-full relative shrink-0 text-[#101828] text-[14px] text-center tracking-[0.25px]" style={{ width: "min-content", fontVariationSettings: "'wdth' 100" }}>
+          <div className="font-['Roboto:Regular',_sans-serif] font-normal leading-[0] min-w-full relative shrink-0 text-[#101828] text-[14px] text-center tracking-[0.25px]" style={{ fontVariationSettings: "'wdth' 100" }}>
             <p className="leading-[1.5]">High-fibre vegetables feed good gut bacteria, improving digestion and metabolism.</p>
           </div>
         </div>
@@ -48,7 +48,7 @@ function InfoCard1() {
 
 function BenefitsCallout() {
   return (
-    <div className="content-stretch flex gap-[8px] items-center justify-start relative shrink-0 w-full" data-name="benefits callout">
+    <div className="content-stretch flex gap-[4px] items-center justify-start relative shrink-0 w-full" data-name="benefits callout">
       <div className="basis-0 flex flex-row grow items-center self-stretch shrink-0">
         <InfoCard />
       </div>
@@ -63,7 +63,7 @@ export default function BenefitsCalloutDay1Week2() {
   return (
     <div className="relative size-full" data-name="benefits callout">
       <div className="flex flex-col items-center justify-center relative size-full">
-        <div className="box-border content-stretch flex flex-col gap-[8px] items-center justify-center px-[16px] py-0 relative size-full">
+        <div className="box-border content-stretch flex flex-col gap-[8px] items-center justify-center px-[8px] sm:px-[16px] py-0 relative size-full">
           <div className="font-['Roboto:Regular',_sans-serif] font-normal leading-[0] relative shrink-0 text-[#667085] text-[14px] tracking-[0.25px] w-full" style={{ fontVariationSettings: "'wdth' 100" }}>
             <p className="leading-[1.2]">How it helps?</p>
           </div>

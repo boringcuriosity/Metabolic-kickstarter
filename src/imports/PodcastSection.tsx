@@ -32,7 +32,7 @@ function CoverAndSupportingText({ onCoverClick }: { onCoverClick?: () => void })
         <div className="box-border content-stretch flex gap-[16px] items-center justify-start px-[16px] py-0 relative w-full">
           <Frame2 onCoverClick={onCoverClick} />
           <div className="basis-0 font-['Roboto:Regular',_sans-serif] font-normal grow leading-[0] min-h-px min-w-px relative shrink-0 text-[#667085] text-[14px] tracking-[0.25px]" style={{ fontVariationSettings: "'wdth' 100" }}>
-            <p className="leading-[1.5]">A tiny change can transform how full, energised, and balanced you feel—ready to find out how?</p>
+            <p className="leading-[1.5]">A tiny change can transform how full, energised, and balanced you feel ready to find out how?</p>
           </div>
         </div>
       </div>

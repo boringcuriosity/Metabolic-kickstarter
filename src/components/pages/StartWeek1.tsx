@@ -33,13 +33,13 @@ export function StartWeek1({ onNext }: StartWeek1Props) {
 
       {/* Sticky Next Button */}
       <div className="fixed bottom-0 left-0 right-0 z-50">
-        <div className="backdrop-blur-[25px] backdrop-filter bg-[rgba(255,255,255,0.75)] mix-blend-hard-light relative w-full h-[64px] mt-[4px] mr-[0px] mb-[0px] ml-[0px] py-[14px] px-[0px]">
-          <div className="absolute left-[16px] right-[16px] top-[8px]">
+        <div className="bg-white relative w-full mr-[0px] mb-[0px] ml-[0px] py-[20px] px-[0px]">
+          <div className="px-[16px]">
             <button 
               className="cta-button cta-button-primary"
               onClick={onNext}
             >
-              <div className="cta-button-front py-[22px] px-[16px] mx-[0px] m-[0px]">
+              <div className="cta-button-front py-[16px] px-[16px] mx-[0px] m-[0px]">
                 <span className="font-['Roboto:Bold',_sans-serif] text-[14px] tracking-[0.25px]" style={{ fontVariationSettings: "'wdth' 100" }}>
                   Next
                 </span>

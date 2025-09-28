@@ -28,8 +28,8 @@ export function ActionChecklist({ title, actions, onItemComplete }: ActionCheckl
   };
 
   return (
-    <div className="box-border content-stretch flex flex-col gap-[8px] items-start justify-start px-[16px] py-0 relative shrink-0 w-full">
-      <div className="font-['Roboto:Regular',_sans-serif] font-normal leading-[0] min-w-full relative shrink-0 text-[#667085] text-[14px] tracking-[0.25px]" style={{ fontVariationSettings: "'wdth' 100", width: "min-content" }}>
+    <div className="box-border content-stretch flex flex-col gap-[8px] items-start justify-start px-[8px] sm:px-[16px] py-0 relative shrink-0 w-full">
+      <div className="font-['Roboto:Regular',_sans-serif] font-normal leading-[0] min-w-full relative shrink-0 text-[#667085] text-[14px] tracking-[0.25px]" style={{ fontVariationSettings: "'wdth' 100" }}>
         <p className="leading-[1.2]">{title}</p>
       </div>
       
@@ -49,7 +49,7 @@ export function ActionChecklist({ title, actions, onItemComplete }: ActionCheckl
                 </defs>
               </svg>
             </div>
-            <div className="basis-0 font-['Roboto:Regular',_sans-serif] font-normal grow leading-[1.5] min-h-px min-w-px relative shrink-0 text-[#101828] text-[0px] text-[14px] tracking-[0.25px]" style={{ fontVariationSettings: "'wdth' 100" }}>
+            <div className="basis-0 font-['Roboto:Regular',_sans-serif] font-normal grow leading-[1.5] min-h-px relative shrink-0 text-[#101828] text-[0px] text-[14px] tracking-[0.25px]" style={{ fontVariationSettings: "'wdth' 100" }}>
               <p className="mb-0">
                 <span className="font-['Roboto:Bold',_sans-serif] font-bold tracking-[0.25px]" style={{ fontVariationSettings: "'wdth' 100" }}>
                   {action.title}
@@ -80,7 +80,7 @@ export function ActionChecklist({ title, actions, onItemComplete }: ActionCheckl
                   </div>
                 </div>
               </div>
-              <div className="basis-0 font-['Roboto:Regular',_sans-serif] font-normal grow leading-[0] min-h-px min-w-px relative shrink-0 text-[#101828] text-[0px] tracking-[0.25px]" style={{ fontVariationSettings: "'wdth' 100" }}>
+              <div className="basis-0 font-['Roboto:Regular',_sans-serif] font-normal grow leading-[0] min-h-px relative shrink-0 text-[#101828] text-[0px] tracking-[0.25px]" style={{ fontVariationSettings: "'wdth' 100" }}>
                 <p className="leading-[1.5] text-[14px]">
                   <span className="font-['Roboto:Bold',_sans-serif] font-bold tracking-[0.25px]" style={{ fontVariationSettings: "'wdth' 100" }}>
                     {subItem.category}

@@ -28,7 +28,7 @@ function Content() {
         <p className="leading-[22px] whitespace-pre">Get Ready for Tomorrow’s Reset</p>
       </div>
       <div className="font-['Roboto:Regular',_sans-serif] font-normal min-w-full relative shrink-0 text-[14px]" style={{ fontVariationSettings: "'wdth' 100", width: "min-content" }}>
-        <p className="leading-[1.2]">Tomorrow is a Light Meal Day. Don’t eat anything heavy — keep it simple and easy to digest. Check tomorrow’s details now so you can prepare your meals in advance</p>
+        <p className="leading-[1.2]">Tomorrow is a Light Meal Day. Don't eat anything heavy keep it simple and easy to digest. Check tomorrow's details now so you can prepare your meals in advance</p>
       </div>
     </div>
   );
