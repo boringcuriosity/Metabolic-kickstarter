@@ -123,11 +123,125 @@ function Week1Layout() {
   const handleResourceClick = (resourceId: string) => {
     console.log('Resource clicked:', resourceId);
     
-    if (resourceId === 'protein-weight-loss') {
-      setCurrentArticle({
-        title: 'The Role of Protein in Weight Loss',
-        url: 'https://www.healthline.com/nutrition/how-protein-can-help-you-lose-weight'
-      });
+    const resourceMap: { [key: string]: { title: string; url: string } } = {
+      // Week 1 Resources
+      'protein-nutrition-guide': {
+        title: 'Complete Guide to High-Protein Nutrition',
+        url: 'https://example.com/protein-nutrition-guide'
+      },
+      'protein-meal-prep': {
+        title: 'Protein-Rich Meal Prep for Busy Lifestyles',
+        url: 'https://example.com/protein-meal-prep'
+      },
+      'hydration-metabolism-science': {
+        title: 'Hydration Science: How Water Powers Your Metabolism',
+        url: 'https://example.com/hydration-metabolism-science'
+      },
+      'smart-hydration-strategies': {
+        title: 'Smart Hydration Strategies for Busy Professionals',
+        url: 'https://example.com/smart-hydration-strategies'
+      },
+      'micro-movements-energy': {
+        title: 'Micro-Movements: Small Steps to Big Energy Gains',
+        url: 'https://example.com/micro-movements-energy'
+      },
+      'desk-friendly-exercises': {
+        title: 'Desk-Friendly Exercises for Office Workers',
+        url: 'https://example.com/desk-friendly-exercises'
+      },
+      'sleep-quality-metabolism': {
+        title: 'Sleep Quality: The Hidden Key to Metabolic Health',
+        url: 'https://example.com/sleep-quality-metabolism'
+      },
+      'perfect-bedtime-ritual': {
+        title: 'Creating the Perfect Bedtime Ritual for Better Rest',
+        url: 'https://example.com/perfect-bedtime-ritual'
+      },
+      'stress-reduction-metabolic': {
+        title: 'Stress Reduction Techniques for Metabolic Wellness',
+        url: 'https://example.com/stress-reduction-metabolic'
+      },
+      'mindfulness-instant-calm': {
+        title: '5-Minute Mindfulness Practices for Instant Calm',
+        url: 'https://example.com/mindfulness-instant-calm'
+      },
+      'habit-formation-science': {
+        title: 'The Science of Habit Formation for Long-term Success',
+        url: 'https://example.com/habit-formation-science'
+      },
+      'smart-health-monitoring': {
+        title: 'Smart Ways to Monitor Your Health Journey',
+        url: 'https://example.com/smart-health-monitoring'
+      },
+      'sustainable-health-balance': {
+        title: 'Sustainable Health: Finding Your Perfect Balance',
+        url: 'https://example.com/sustainable-health-balance'
+      },
+      'maintaining-momentum-beyond': {
+        title: 'Maintaining Momentum: Your Journey Beyond Week 1',
+        url: 'https://example.com/maintaining-momentum-beyond'
+      },
+      // Week 2 Resources
+      'fiber-vegetables-weight-loss': {
+        title: 'Fiber-Rich Vegetables for Sustainable Weight Loss',
+        url: 'https://example.com/fiber-vegetables-weight-loss'
+      },
+      'nutrient-vegetable-recipes': {
+        title: 'Nutrient-Dense Vegetable Recipes for Every Meal',
+        url: 'https://example.com/nutrient-vegetable-recipes'
+      },
+      'morning-hydration-routine': {
+        title: 'Morning Hydration Routine for Peak Performance',
+        url: 'https://example.com/morning-hydration-routine'
+      },
+      'water-intake-optimization': {
+        title: 'Water Intake Optimization for Maximum Energy',
+        url: 'https://example.com/water-intake-optimization'
+      },
+      'cardio-fat-burning': {
+        title: 'Cardio Training: Unlocking Your Fat-Burning Potential',
+        url: 'https://example.com/cardio-fat-burning'
+      },
+      'running-metabolism-boost': {
+        title: 'Running for Metabolism: The Complete Beginner\'s Guide',
+        url: 'https://example.com/running-metabolism-boost'
+      },
+      'digital-detox-sleep': {
+        title: 'Digital Detox for Better Sleep Quality',
+        url: 'https://example.com/digital-detox-sleep'
+      },
+      'screen-time-sleep-impact': {
+        title: 'Screen Time and Sleep: Breaking the Blue Light Cycle',
+        url: 'https://example.com/screen-time-sleep-impact'
+      },
+      'mindfulness-stress-management': {
+        title: 'Mindfulness-Based Stress Management Techniques',
+        url: 'https://example.com/mindfulness-stress-management'
+      },
+      'breathing-exercises-calm': {
+        title: 'Breathing Exercises for Instant Stress Relief',
+        url: 'https://example.com/breathing-exercises-calm'
+      },
+      'hiit-workout-benefits': {
+        title: 'HIIT Workouts: Maximum Results in Minimum Time',
+        url: 'https://example.com/hiit-workout-benefits'
+      },
+      'sprint-training-metabolism': {
+        title: 'Sprint Training: The Ultimate Metabolism Booster',
+        url: 'https://example.com/sprint-training-metabolism'
+      },
+      'balanced-lifestyle-sustainability': {
+        title: 'Balanced Lifestyle: The Key to Sustainable Health',
+        url: 'https://example.com/balanced-lifestyle-sustainability'
+      },
+      'long-term-wellness-journey': {
+        title: 'Your Long-term Wellness Journey: What\'s Next?',
+        url: 'https://example.com/long-term-wellness-journey'
+      }
+    };
+    
+    if (resourceMap[resourceId]) {
+      setCurrentArticle(resourceMap[resourceId]);
       setIsArticleOpen(true);
     }
   };
@@ -355,11 +469,125 @@ function Week2Layout() {
   const handleResourceClick = (resourceId: string) => {
     console.log('Resource clicked:', resourceId);
     
-    if (resourceId === 'protein-weight-loss') {
-      setCurrentArticle({
-        title: 'The Role of Protein in Weight Loss',
-        url: 'https://www.healthline.com/nutrition/how-protein-can-help-you-lose-weight'
-      });
+    const resourceMap: { [key: string]: { title: string; url: string } } = {
+      // Week 1 Resources
+      'protein-nutrition-guide': {
+        title: 'Complete Guide to High-Protein Nutrition',
+        url: 'https://example.com/protein-nutrition-guide'
+      },
+      'protein-meal-prep': {
+        title: 'Protein-Rich Meal Prep for Busy Lifestyles',
+        url: 'https://example.com/protein-meal-prep'
+      },
+      'hydration-metabolism-science': {
+        title: 'Hydration Science: How Water Powers Your Metabolism',
+        url: 'https://example.com/hydration-metabolism-science'
+      },
+      'smart-hydration-strategies': {
+        title: 'Smart Hydration Strategies for Busy Professionals',
+        url: 'https://example.com/smart-hydration-strategies'
+      },
+      'micro-movements-energy': {
+        title: 'Micro-Movements: Small Steps to Big Energy Gains',
+        url: 'https://example.com/micro-movements-energy'
+      },
+      'desk-friendly-exercises': {
+        title: 'Desk-Friendly Exercises for Office Workers',
+        url: 'https://example.com/desk-friendly-exercises'
+      },
+      'sleep-quality-metabolism': {
+        title: 'Sleep Quality: The Hidden Key to Metabolic Health',
+        url: 'https://example.com/sleep-quality-metabolism'
+      },
+      'perfect-bedtime-ritual': {
+        title: 'Creating the Perfect Bedtime Ritual for Better Rest',
+        url: 'https://example.com/perfect-bedtime-ritual'
+      },
+      'stress-reduction-metabolic': {
+        title: 'Stress Reduction Techniques for Metabolic Wellness',
+        url: 'https://example.com/stress-reduction-metabolic'
+      },
+      'mindfulness-instant-calm': {
+        title: '5-Minute Mindfulness Practices for Instant Calm',
+        url: 'https://example.com/mindfulness-instant-calm'
+      },
+      'habit-formation-science': {
+        title: 'The Science of Habit Formation for Long-term Success',
+        url: 'https://example.com/habit-formation-science'
+      },
+      'smart-health-monitoring': {
+        title: 'Smart Ways to Monitor Your Health Journey',
+        url: 'https://example.com/smart-health-monitoring'
+      },
+      'sustainable-health-balance': {
+        title: 'Sustainable Health: Finding Your Perfect Balance',
+        url: 'https://example.com/sustainable-health-balance'
+      },
+      'maintaining-momentum-beyond': {
+        title: 'Maintaining Momentum: Your Journey Beyond Week 1',
+        url: 'https://example.com/maintaining-momentum-beyond'
+      },
+      // Week 2 Resources
+      'fiber-vegetables-weight-loss': {
+        title: 'Fiber-Rich Vegetables for Sustainable Weight Loss',
+        url: 'https://example.com/fiber-vegetables-weight-loss'
+      },
+      'nutrient-vegetable-recipes': {
+        title: 'Nutrient-Dense Vegetable Recipes for Every Meal',
+        url: 'https://example.com/nutrient-vegetable-recipes'
+      },
+      'morning-hydration-routine': {
+        title: 'Morning Hydration Routine for Peak Performance',
+        url: 'https://example.com/morning-hydration-routine'
+      },
+      'water-intake-optimization': {
+        title: 'Water Intake Optimization for Maximum Energy',
+        url: 'https://example.com/water-intake-optimization'
+      },
+      'cardio-fat-burning': {
+        title: 'Cardio Training: Unlocking Your Fat-Burning Potential',
+        url: 'https://example.com/cardio-fat-burning'
+      },
+      'running-metabolism-boost': {
+        title: 'Running for Metabolism: The Complete Beginner\'s Guide',
+        url: 'https://example.com/running-metabolism-boost'
+      },
+      'digital-detox-sleep': {
+        title: 'Digital Detox for Better Sleep Quality',
+        url: 'https://example.com/digital-detox-sleep'
+      },
+      'screen-time-sleep-impact': {
+        title: 'Screen Time and Sleep: Breaking the Blue Light Cycle',
+        url: 'https://example.com/screen-time-sleep-impact'
+      },
+      'mindfulness-stress-management': {
+        title: 'Mindfulness-Based Stress Management Techniques',
+        url: 'https://example.com/mindfulness-stress-management'
+      },
+      'breathing-exercises-calm': {
+        title: 'Breathing Exercises for Instant Stress Relief',
+        url: 'https://example.com/breathing-exercises-calm'
+      },
+      'hiit-workout-benefits': {
+        title: 'HIIT Workouts: Maximum Results in Minimum Time',
+        url: 'https://example.com/hiit-workout-benefits'
+      },
+      'sprint-training-metabolism': {
+        title: 'Sprint Training: The Ultimate Metabolism Booster',
+        url: 'https://example.com/sprint-training-metabolism'
+      },
+      'balanced-lifestyle-sustainability': {
+        title: 'Balanced Lifestyle: The Key to Sustainable Health',
+        url: 'https://example.com/balanced-lifestyle-sustainability'
+      },
+      'long-term-wellness-journey': {
+        title: 'Your Long-term Wellness Journey: What\'s Next?',
+        url: 'https://example.com/long-term-wellness-journey'
+      }
+    };
+    
+    if (resourceMap[resourceId]) {
+      setCurrentArticle(resourceMap[resourceId]);
       setIsArticleOpen(true);
     }
   };

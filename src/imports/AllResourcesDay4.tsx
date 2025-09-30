@@ -5,7 +5,7 @@ import imgChatGptImageAug182025073646Pm1 from "figma:asset/07b441b6bda080c8d5c8b
 function ArticleImage() {
   return (
     <div className="overflow-clip relative rounded-[12px] shrink-0 size-[54px]" data-name="article image">
-      <div className="absolute bg-center bg-cover bg-no-repeat h-[54px] left-0 top-0 w-[82px]" data-name="ChatGPT Image Aug 18, 2025, 07_36_46 PM 1" style={{ backgroundImage: `url('${imgChatGptImageAug182025073646Pm1}')` }} />
+      <div className="absolute bg-center bg-cover bg-no-repeat h-[54px] left-0 top-0 w-[82px]" data-name="Sleep health metabolism" style={{ backgroundImage: `url('https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzbGVlcCUyMGhlYWx0aCUyMG1ldGFib2xpc20lMjBlbmVyZ3l8ZW58MXx8fHwxNzU4MDA5NDk1fDA&ixlib=rb-4.1.0&q=80&w=1080')` }} />
     </div>
   );
 }
@@ -49,7 +49,7 @@ function Rhs() {
       <TagAndChevron />
       <div className="font-['Roboto:Regular',_sans-serif] font-normal leading-[0] relative shrink-0 text-[#101828] text-[0px] tracking-[0.25px] w-full" style={{ fontVariationSettings: "'wdth' 100" }}>
         <p className="font-['Roboto:Bold',_sans-serif] font-bold leading-[1.2] text-[14px]" style={{ fontVariationSettings: "'wdth' 100" }}>
-          Sleep and Its Impact on Your Metabolism
+          Sleep Quality: The Hidden Key to Metabolic Health
         </p>
       </div>
     </div>
@@ -72,7 +72,7 @@ function Article() {
 function ArticleImage1() {
   return (
     <div className="overflow-clip relative rounded-[12px] shrink-0 size-[54px]" data-name="article image">
-      <div className="absolute bg-center bg-cover bg-no-repeat h-[54px] left-0 top-0 w-[82px]" data-name="ChatGPT Image Aug 18, 2025, 07_36_46 PM 1" style={{ backgroundImage: `url('${imgChatGptImageAug182025073646Pm1}')` }} />
+      <div className="absolute bg-center bg-cover bg-no-repeat h-[54px] left-0 top-0 w-[82px]" data-name="Sleep routine habits" style={{ backgroundImage: `url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzbGVlcCUyMHJvdXRpbmUlMjBoYWJpdHMlMjBoZWFsdGh5JTIwZW5lcmd5fGVufDF8fHwxNzU4MDA5NDk1fDA&ixlib=rb-4.1.0&q=80&w=1080')` }} />
     </div>
   );
 }
@@ -116,7 +116,7 @@ function Rhs1() {
       <TagAndChevron1 />
       <div className="font-['Roboto:Regular',_sans-serif] font-normal leading-[0] relative shrink-0 text-[#101828] text-[0px] tracking-[0.25px] w-full" style={{ fontVariationSettings: "'wdth' 100" }}>
         <p className="font-['Roboto:Bold',_sans-serif] font-bold leading-[1.2] text-[14px]" style={{ fontVariationSettings: "'wdth' 100" }}>
-          How to Build a Consistent Sleep Routine
+          Creating the Perfect Bedtime Ritual for Better Rest
         </p>
       </div>
     </div>

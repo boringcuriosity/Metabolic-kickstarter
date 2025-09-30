@@ -6,7 +6,8 @@ import GoalDay2 from '../../imports/GoalDay2-3-2503';
 import Heading from '../../imports/Heading';
 import BenefitsCallout from '../../imports/BenefitsCallout-30-1347';
 import StatementStructure from '../../imports/StatementStructure-3-2813';
-import AllResourcesDay2 from '../../imports/AllResourcesDay2';
+import { ResourcesSection } from '../ResourcesSection';
+import { resourcesData } from '../../constants/resourcesData';
 import FeedbackComponent from '../FeedbackComponent';
 
 interface Day2Props {
@@ -45,7 +46,10 @@ export function Day2({ onResourceClick }: Day2Props) {
       </div>
 
       {/* Resources Section */}
-      <AllResourcesDay2 />
+      <ResourcesSection 
+        resources={resourcesData['day2-week1']}
+        onResourceClick={onResourceClick}
+      />
 
       {/* Feedback Section */}
       <FeedbackComponent pageName="Day 2" />

@@ -5,7 +5,8 @@ import { InfoSection } from '../../InfoSection';
 import PodcastSectionDay5Week2 from '../../../imports/PodcastSectionDay5Week2';
 import GoalDay5Week2 from '../../../imports/GoalDay5Week2';
 import Heading from '../../../imports/Heading';
-import AllResourcesDay5 from '../../../imports/AllResourcesDay5';
+import { ResourcesSection } from '../../ResourcesSection';
+import { resourcesData } from '../../../constants/resourcesData';
 import BenefitsCalloutDay5Week2 from '../../BenefitsCalloutDay5Week2';
 import { HowToAchieveDay5Week2 } from '../../HowToAchieveDay5Week2';
 import { MessagesDay5Week2 } from '../../MessagesDay5Week2';
@@ -50,7 +51,10 @@ export function Day5Week2({ onResourceClick }: Day5Week2Props) {
       <MessagesDay5Week2 />
 
       {/* Resources Section */}
-      <AllResourcesDay5 />
+      <ResourcesSection 
+        resources={resourcesData['day5-week2']}
+        onResourceClick={onResourceClick}
+      />
 
       {/* Feedback Section */}
       <FeedbackComponent pageName="Day 5 - Week 2" />

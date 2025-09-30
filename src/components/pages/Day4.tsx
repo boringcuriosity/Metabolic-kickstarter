@@ -5,7 +5,8 @@ import { TrackingButton } from '../TrackingButton';
 import PodcastSectionDay4 from '../PodcastSectionDay4';
 import GoalDay4 from '../../imports/GoalDay4';
 import Heading from '../../imports/Heading';
-import AllResourcesDay4 from '../../imports/AllResourcesDay4';
+import { ResourcesSection } from '../ResourcesSection';
+import { resourcesData } from '../../constants/resourcesData';
 import BenefitsCalloutDay4New from '../../imports/BenefitsCallout-28-3107';
 import StatementStructureDay4 from '../../imports/StatementStructure-28-3048';
 import { RecommendedProductDay4 } from '../RecommendedProductDay4';
@@ -48,7 +49,10 @@ export function Day4({ onResourceClick, onProductClick }: Day4Props) {
       </div>
 
       {/* Resources Section */}
-      <AllResourcesDay4 />
+      <ResourcesSection 
+        resources={resourcesData['day4-week1']}
+        onResourceClick={onResourceClick}
+      />
 
 
       {/* Feedback Section */}

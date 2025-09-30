@@ -3,7 +3,8 @@ import { ProgressDots } from '../ProgressDots';
 import { InfoSection } from '../InfoSection';
 import PodcastSectionDay3 from '../PodcastSectionDay3';
 import GoalDay3 from '../../imports/GoalDay3-27-973';
-import AllResourcesDay3 from '../../imports/AllResourcesDay3';
+import { ResourcesSection } from '../ResourcesSection';
+import { resourcesData } from '../../constants/resourcesData';
 import BenefitsCallout from '../../imports/BenefitsCallout-30-1385';
 import StatementStructure from '../../imports/StatementStructure-28-2785';
 
@@ -44,7 +45,10 @@ export function Day3({ onResourceClick, onProductClick }: Day3Props) {
       </div>
 
       {/* Resources Section */}
-      <AllResourcesDay3 />
+      <ResourcesSection 
+        resources={resourcesData['day3-week1']}
+        onResourceClick={onResourceClick}
+      />
 
 
       {/* Feedback Section */}

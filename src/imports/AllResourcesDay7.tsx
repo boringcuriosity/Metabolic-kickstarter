@@ -5,7 +5,7 @@ import imgChatGptImageAug182025073646Pm1 from "figma:asset/07b441b6bda080c8d5c8b
 function ArticleImage() {
   return (
     <div className="overflow-clip relative rounded-[12px] shrink-0 size-[54px]" data-name="article image">
-      <div className="absolute bg-center bg-cover bg-no-repeat h-[54px] left-0 top-0 w-[82px]" data-name="ChatGPT Image Aug 18, 2025, 07_36_46 PM 1" style={{ backgroundImage: `url('${imgChatGptImageAug182025073646Pm1}')` }} />
+      <div className="absolute bg-center bg-cover bg-no-repeat h-[54px] left-0 top-0 w-[82px]" data-name="Balance lifestyle health" style={{ backgroundImage: `url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiYWxhbmNlJTIwbGlmZXN0eWxlJTIwaGVhbHRoeSUyMGVuZXJneXxlbnwxfHx8MTc1ODAwOTQ5NXww&ixlib=rb-4.1.0&q=80&w=1080')` }} />
     </div>
   );
 }
@@ -49,7 +49,7 @@ function Rhs() {
       <TagAndChevron />
       <div className="font-['Roboto:Regular',_sans-serif] font-normal leading-[0] relative shrink-0 text-[#101828] text-[0px] tracking-[0.25px] w-full" style={{ fontVariationSettings: "'wdth' 100" }}>
         <p className="font-['Roboto:Bold',_sans-serif] font-bold leading-[1.2] text-[14px]" style={{ fontVariationSettings: "'wdth' 100" }}>
-          Building Lasting Healthy Habits
+          Sustainable Health: Finding Your Perfect Balance
         </p>
       </div>
     </div>
@@ -72,7 +72,7 @@ function Article() {
 function ArticleImage1() {
   return (
     <div className="overflow-clip relative rounded-[12px] shrink-0 size-[54px]" data-name="article image">
-      <div className="absolute bg-center bg-cover bg-no-repeat h-[54px] left-0 top-0 w-[82px]" data-name="ChatGPT Image Aug 18, 2025, 07_36_46 PM 1" style={{ backgroundImage: `url('${imgChatGptImageAug182025073646Pm1}')` }} />
+      <div className="absolute bg-center bg-cover bg-no-repeat h-[54px] left-0 top-0 w-[82px]" data-name="Long term health success" style={{ backgroundImage: `url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsb25nJTIwdGVybSUyMGhlYWx0aCUyMHN1Y2Nlc3MlMjBlbmVyZ3l8ZW58MXx8fHwxNzU4MDA5NDk1fDA&ixlib=rb-4.1.0&q=80&w=1080')` }} />
     </div>
   );
 }
@@ -116,7 +116,7 @@ function Rhs1() {
       <TagAndChevron1 />
       <div className="font-['Roboto:Regular',_sans-serif] font-normal leading-[0] relative shrink-0 text-[#101828] text-[0px] tracking-[0.25px] w-full" style={{ fontVariationSettings: "'wdth' 100" }}>
         <p className="font-['Roboto:Bold',_sans-serif] font-bold leading-[1.2] text-[14px]" style={{ fontVariationSettings: "'wdth' 100" }}>
-          Tracking Your Progress for Continued Success
+          Maintaining Momentum: Your Journey Beyond Week 1
         </p>
       </div>
     </div>

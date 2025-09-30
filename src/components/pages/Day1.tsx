@@ -6,7 +6,8 @@ import { InfoSection } from '../InfoSection';
 import { BenefitCards } from '../BenefitCards';
 import { ActionChecklist } from '../ActionChecklist';
 
-import { ResourceCard } from '../ResourceCard';
+import { ResourcesSection } from '../ResourcesSection';
+import { resourcesData } from '../../constants/resourcesData';
 import PodcastSection from '../../imports/PodcastSection';
 import BenefitsCalloutDay1 from '../../imports/BenefitsCalloutDay1-30-1308';
 import RecommendedProduct from '../../imports/RecommendedProduct-3-1829';
@@ -88,29 +89,10 @@ export function Day1({ onResourceClick, onProductClick }: Day1Props) {
       </div>
 
       {/* Resources Section */}
-      <div className="relative shrink-0 w-full">
-        <div className="relative size-full">
-          <div className="box-border content-stretch flex flex-col gap-[16px] items-start justify-start px-[16px] py-0 relative w-full">
-            <div className="font-['Roboto:Regular',_sans-serif] font-normal leading-[0] relative shrink-0 text-[#667085] text-[0px] tracking-[0.25px] w-full" style={{ fontVariationSettings: "'wdth' 100" }}>
-              <p className="font-['Roboto:Bold',_sans-serif] font-bold leading-[1.2] text-[14px]" style={{ fontVariationSettings: "'wdth' 100" }}>
-                Resources for you
-              </p>
-            </div>
-            <ResourceCard 
-              image="https://images.unsplash.com/photo-1684160244466-b89ef03b7638?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxudXRyaXRpb24lMjBhcnRpY2xlJTIwaGVhbHRoeSUyMGVhdGluZyUyMGJsb2d8ZW58MXx8fHwxNzU4MDA5NDk1fDA&ixlib=rb-4.1.0&q=80&w=1080"
-              title="The Role of Protein in Weight Loss"
-              type="Article"
-              onClick={() => onResourceClick?.('protein-weight-loss')}
-            />
-            <ResourceCard 
-              image="https://images.unsplash.com/photo-1684160244466-b89ef03b7638?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxudXRyaXRpb24lMjBhcnRpY2xlJTIwaGVhbHRoeSUyMGVhdGluZyUyMGJsb2d8ZW58MXx8fHwxNzU4MDA5NDk1fDA&ixlib=rb-4.1.0&q=80&w=1080"
-              title="10 Easy Protein Sources for Every Meal"
-              type="Article"
-              onClick={() => onResourceClick?.('protein-sources')}
-            />
-          </div>
-        </div>
-      </div>
+      <ResourcesSection 
+        resources={resourcesData['day1-week1']}
+        onResourceClick={onResourceClick}
+      />
 
 
       {/* Feedback Section */}

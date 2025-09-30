@@ -5,7 +5,8 @@ import { InfoSection } from '../InfoSection';
 import PodcastSectionDay5 from '../PodcastSectionDay5';
 import GoalDay5 from '../../imports/GoalDay5';
 import Heading from '../../imports/Heading';
-import AllResourcesDay5 from '../../imports/AllResourcesDay5';
+import { ResourcesSection } from '../ResourcesSection';
+import { resourcesData } from '../../constants/resourcesData';
 import BenefitsCalloutDay5New from '../../imports/BenefitsCallout-28-3145';
 import StatementStructureDay5 from '../../imports/StatementStructure-28-3260';
 import MessagesDay5 from '../../imports/Messages-28-3289';
@@ -50,7 +51,10 @@ export function Day5({ onResourceClick }: Day5Props) {
       <MessagesDay5 />
 
       {/* Resources Section */}
-      <AllResourcesDay5 />
+      <ResourcesSection 
+        resources={resourcesData['day5-week1']}
+        onResourceClick={onResourceClick}
+      />
 
       {/* Feedback Section */}
       <FeedbackComponent pageName="Day 5" />

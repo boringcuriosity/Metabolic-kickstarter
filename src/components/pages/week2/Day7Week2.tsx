@@ -4,7 +4,8 @@ import { InfoSection } from '../../InfoSection';
 import CheatDaySection from '../../../imports/CheatDaySection';
 import PodcastSectionDay7Week2 from '../../../imports/PodcastSectionDay7Week2';
 import GoalDay7Week2 from '../../../imports/GoalDay7Week2';
-import AllResourcesDay7 from '../../../imports/AllResourcesDay7';
+import { ResourcesSection } from '../../ResourcesSection';
+import { resourcesData } from '../../../constants/resourcesData';
 import Messages from '../../../imports/Messages-28-2455';
 import { HowToAchieveDay7Week2 } from '../../HowToAchieveDay7Week2';
 import FeedbackComponent from '../../FeedbackComponent';
@@ -46,7 +47,10 @@ export function Day7Week2({ onResourceClick }: Day7Week2Props) {
       <Messages />
 
       {/* Resources Section */}
-      <AllResourcesDay7 />
+      <ResourcesSection 
+        resources={resourcesData['day7-week2']}
+        onResourceClick={onResourceClick}
+      />
 
       {/* Feedback Section */}
       <FeedbackComponent pageName="Day 7 - Week 2" />

@@ -86,6 +86,16 @@ const FeedbackComponent = ({ pageName, question = "Was this helpful?" }: Feedbac
     setSubmitError(null);
   };
 
+  const handleResetFeedback = () => {
+    // Reset all state variables to initial values
+    setFeedbackSubmitted(false);
+    setIsLiked(null);
+    setShowBottomSheet(false);
+    setDislikeReason('');
+    setIsSubmitting(false);
+    setSubmitError(null);
+  };
+
   // Enhanced feedback submission with retry logic
   const sendFeedback = async (data: any, retries = 3): Promise<boolean> => {
     try {
@@ -202,7 +212,11 @@ const FeedbackComponent = ({ pageName, question = "Was this helpful?" }: Feedbac
           </div>
         </div>
       ) : (
-        <div className="bg-[#f2f4f7] box-border flex gap-[16px] items-center justify-start px-[16px] py-[8px] relative rounded-[16px]">
+        <button 
+          onClick={handleResetFeedback}
+          className="bg-[#f2f4f7] box-border flex gap-[16px] items-center justify-start px-[16px] py-[8px] relative rounded-[16px] hover:bg-[#e4e7ec] transition-colors duration-200 cursor-pointer border-none p-0"
+          aria-label="Click to change your feedback"
+        >
           <div className="font-['Roboto:Regular',_sans-serif] font-normal leading-[0] relative text-[#667085] text-[12px] text-center text-nowrap tracking-[0.25px]" style={{ fontVariationSettings: "'wdth' 100" }}>
             <p className="leading-[1.2] whitespace-pre">Feedback Submitted!</p>
           </div>
@@ -223,7 +237,7 @@ const FeedbackComponent = ({ pageName, question = "Was this helpful?" }: Feedbac
               )}
             </div>
           </div>
-        </div>
+        </button>
       )}
 
       {showBottomSheet && (
