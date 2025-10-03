@@ -28,11 +28,38 @@ export function TabNavigation({ tabs, onTabClick }: TabNavigationProps) {
       // Calculate the scroll position to center the tab
       const scrollLeft = activeTab.offsetLeft - (container.clientWidth / 2) + (tabRect.width / 2);
       
-      // Smooth scroll to the calculated position
-      container.scrollTo({
-        left: scrollLeft,
-        behavior: 'smooth'
-      });
+      // iOS Safari compatible smooth scroll
+      if ('scrollBehavior' in container.style) {
+        container.scrollTo({
+          left: scrollLeft,
+          behavior: 'smooth'
+        });
+      } else {
+        // Custom smooth animation for browsers that don't support smooth scrolling
+        const startPosition = container.scrollLeft;
+        const startTime = performance.now();
+        const duration = 300; // 300ms animation duration for horizontal scroll
+        
+        const animateScroll = (currentTime: number) => {
+          const elapsed = currentTime - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          
+          // Easing function for smooth deceleration
+          const easeOutCubic = 1 - Math.pow(1 - progress, 3);
+          const currentPosition = startPosition + (scrollLeft - startPosition) * easeOutCubic;
+          
+          container.scrollLeft = currentPosition;
+          
+          if (progress < 1) {
+            requestAnimationFrame(animateScroll);
+          } else {
+            // Ensure we're exactly at the target position
+            container.scrollLeft = scrollLeft;
+          }
+        };
+        
+        requestAnimationFrame(animateScroll);
+      }
     }
   }, [tabs]); // Re-run when tabs change (including active state)
 

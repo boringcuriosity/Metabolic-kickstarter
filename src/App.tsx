@@ -70,6 +70,39 @@ function Week1Layout() {
     { id: 'conclusion', label: 'Conclusion', isActive: activeTab === 'conclusion' },
   ];
 
+  // iOS Safari compatible scroll to top function with smooth animation
+  const scrollToTop = () => {
+    const startPosition = window.pageYOffset;
+    const startTime = performance.now();
+    const duration = 500; // 500ms animation duration
+    
+    const animateScroll = (currentTime: number) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      
+      // Easing function for smooth deceleration
+      const easeOutCubic = 1 - Math.pow(1 - progress, 3);
+      const currentPosition = startPosition * (1 - easeOutCubic);
+      
+      window.scrollTo(0, currentPosition);
+      
+      if (progress < 1) {
+        requestAnimationFrame(animateScroll);
+      } else {
+        // Ensure we're exactly at the top
+        window.scrollTo(0, 0);
+      }
+    };
+    
+    // Start the animation
+    requestAnimationFrame(animateScroll);
+    
+    // Fallback for browsers that don't support requestAnimationFrame
+    if (!window.requestAnimationFrame) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
   const handleTabClick = (tabId: string) => {
     // Navigate to appropriate URL based on tab
     switch (tabId) {
@@ -101,7 +134,7 @@ function Week1Layout() {
         navigate('/week1/conclusion');
         break;
     }
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    scrollToTop();
   };
 
   const handleBack = () => {
@@ -263,6 +296,7 @@ function Week1Layout() {
   const handleUnlockWeek2 = () => {
     console.log('Unlock Week 2 clicked');
     navigate('/week2');
+    scrollToTop();
   };
 
   const renderCurrentPage = () => {
@@ -413,6 +447,39 @@ function Week2Layout() {
     { id: 'conclusion-week-2', label: 'Conclusion', isActive: activeTab === 'conclusion-week-2' },
   ];
 
+  // iOS Safari compatible scroll to top function with smooth animation
+  const scrollToTop = () => {
+    const startPosition = window.pageYOffset;
+    const startTime = performance.now();
+    const duration = 500; // 500ms animation duration
+    
+    const animateScroll = (currentTime: number) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      
+      // Easing function for smooth deceleration
+      const easeOutCubic = 1 - Math.pow(1 - progress, 3);
+      const currentPosition = startPosition * (1 - easeOutCubic);
+      
+      window.scrollTo(0, currentPosition);
+      
+      if (progress < 1) {
+        requestAnimationFrame(animateScroll);
+      } else {
+        // Ensure we're exactly at the top
+        window.scrollTo(0, 0);
+      }
+    };
+    
+    // Start the animation
+    requestAnimationFrame(animateScroll);
+    
+    // Fallback for browsers that don't support requestAnimationFrame
+    if (!window.requestAnimationFrame) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
   const handleTabClick = (tabId: string) => {
     // Navigate to appropriate URL based on tab
     switch (tabId) {
@@ -444,7 +511,7 @@ function Week2Layout() {
         navigate('/week2/conclusion');
         break;
     }
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    scrollToTop();
   };
 
   const handleBack = () => {
@@ -455,6 +522,7 @@ function Week2Layout() {
     } else {
       // If we're on the first tab, navigate back to Week 1
       navigate('/week1');
+      scrollToTop();
     }
   };
 
