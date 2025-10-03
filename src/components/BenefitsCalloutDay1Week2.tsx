@@ -1,7 +1,10 @@
+import iconDown from "../assets/Icon type=down.png";
+import iconMuscle from "../assets/Icon type=Muscle.png";
+
 function InfoIcon() {
   return (
     <div className="bg-[#fef1c7] overflow-clip relative rounded-[100px] shrink-0 size-[60px]" data-name="info icon">
-      <div className="absolute bg-center bg-cover bg-no-repeat left-0 size-[60px] top-0" data-name="down icon" style={{ backgroundImage: `url('/src/assets/Icon type=down.png')` }} />
+      <div className="absolute bg-center bg-cover bg-no-repeat left-0 size-[60px] top-0" data-name="down icon" style={{ backgroundImage: `url('${iconDown}')` }} />
     </div>
   );
 }
@@ -25,7 +28,7 @@ function InfoCard() {
 function InfoIcon1() {
   return (
     <div className="bg-[#fef1c7] overflow-clip relative rounded-[100px] shrink-0 size-[60px]" data-name="info icon">
-      <div className="absolute bg-center bg-cover bg-no-repeat left-0 size-[60px] top-0" data-name="muscle icon" style={{ backgroundImage: `url('/src/assets/Icon type=Muscle.png')` }} />
+      <div className="absolute bg-center bg-cover bg-no-repeat left-0 size-[60px] top-0" data-name="muscle icon" style={{ backgroundImage: `url('${iconMuscle}')` }} />
     </div>
   );
 }

@@ -1,7 +1,10 @@
+import iconCells from "../assets/Icon type=Cells.png";
+import iconInsulin from "../assets/Icon type=Insulin.png";
+
 function InfoIcon() {
   return (
     <div className="bg-[#fef1c7] overflow-clip relative rounded-[100px] shrink-0 size-[60px]" data-name="info icon">
-      <div className="absolute bg-center bg-cover bg-no-repeat left-0 size-[60px] top-0" data-name="cells icon" style={{ backgroundImage: `url('/src/assets/Icon type=Cells.png')` }} />
+      <div className="absolute bg-center bg-cover bg-no-repeat left-0 size-[60px] top-0" data-name="cells icon" style={{ backgroundImage: `url('${iconCells}')` }} />
     </div>
   );
 }
@@ -25,7 +28,7 @@ function InfoCard() {
 function InfoIcon1() {
   return (
     <div className="bg-[#fef1c7] overflow-clip relative rounded-[100px] shrink-0 size-[60px]" data-name="info icon">
-      <div className="absolute bg-center bg-cover bg-no-repeat left-0 size-[60px] top-0" data-name="insulin icon" style={{ backgroundImage: `url('/src/assets/Icon type=Insulin.png')` }} />
+      <div className="absolute bg-center bg-cover bg-no-repeat left-0 size-[60px] top-0" data-name="insulin icon" style={{ backgroundImage: `url('${iconInsulin}')` }} />
     </div>
   );
 }

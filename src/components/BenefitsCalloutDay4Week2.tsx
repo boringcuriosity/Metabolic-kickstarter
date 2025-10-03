@@ -1,7 +1,10 @@
+import iconHormone from "../assets/Icon type=hormone.png";
+import iconSleep from "../assets/Icon type=sleep.png";
+
 function InfoIcon() {
   return (
     <div className="bg-[#fef1c7] overflow-clip relative rounded-[100px] shrink-0 size-[60px]" data-name="info icon">
-      <div className="absolute bg-center bg-cover bg-no-repeat left-0 size-[60px] top-0" data-name="hormone icon" style={{ backgroundImage: `url('/src/assets/Icon type=hormone.png')` }} />
+      <div className="absolute bg-center bg-cover bg-no-repeat left-0 size-[60px] top-0" data-name="hormone icon" style={{ backgroundImage: `url('${iconHormone}')` }} />
     </div>
   );
 }
@@ -25,7 +28,7 @@ function InfoCard() {
 function InfoIcon1() {
   return (
     <div className="bg-[#fef1c7] overflow-clip relative rounded-[100px] shrink-0 size-[60px]" data-name="info icon">
-      <div className="absolute bg-center bg-cover bg-no-repeat left-0 size-[60px] top-0" data-name="sleep icon" style={{ backgroundImage: `url('/src/assets/Icon type=sleep.png')` }} />
+      <div className="absolute bg-center bg-cover bg-no-repeat left-0 size-[60px] top-0" data-name="sleep icon" style={{ backgroundImage: `url('${iconSleep}')` }} />
     </div>
   );
 }
